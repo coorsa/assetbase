@@ -36,5 +36,6 @@ puts "created portfolio"
 puts "creating bookmark"
 a = Asset.last
 Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test")
+Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 2, date: "19/02/2022", comment: "test")
 Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: bitcoin.id, transaction_price: 150, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test2")
 puts "created bookmark"
