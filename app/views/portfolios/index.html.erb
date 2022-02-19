@@ -1,4 +1,4 @@
 <h1>Portfolio index</h1>
 <% current_user.portfolios.each do |portfolio| %>
-  <h2><%= portfolio.title %></h2>
+  <h2><%= link_to portfolio.title, portfolio_path(portfolio) %></h2>
 <% end %>
