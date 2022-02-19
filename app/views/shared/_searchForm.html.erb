@@ -1,0 +1,16 @@
+  <%= form_tag assets_path, class: "search-form flex-grow-1", method: :get do %>
+    <div class="input-group" id="search-bar">
+      <%= text_field_tag :query,
+        params[:query],
+        id: "search-field",
+        class: "form-control shadow-none",
+        placeholder: "Search for an asset"
+      %>
+      <div class="input-group-btn">
+
+        <button type="submit" name="commit" value="Search" class="btn btn-outline-secondary shadow-none" data-disable-with="Search" id="search-btn" >
+          <%= icon("fas", "search") %>
+        </button>
+      </div>
+    </div>
+  <% end %>
