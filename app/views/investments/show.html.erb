@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="wrapper">
+    <h1><%= @investment.name %></h1>
+    <div>
+      <p><strong>Ticker Symbol:</strong> <%= @investment.symbol %></p>
+    </div>
+    <div>
+      <p><strong>Category:</strong> <%= @investment.category %></p>
+    </div>
+    <div>
+      <p><strong>Current price (<%= @info["currency"]%>):</strong> <%= @info["regularMarketPrice"] %></p>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn btn-primary" %>
+</div>

@@ -29,10 +29,10 @@ class PortfoliosController < ApplicationController
     params.require(:portfolio).permit(:title, :description)
   end
 
-  def asset_price
+  def investment_price
     query = BasicYahooFinance::Query.new
-    data = query.quotes(@portfolio.asset.symbol)
-    @price = data[@portfolio.asset.symbol]['regularMarketPrice']
+    data = query.quotes(@portfolio.investment.symbol)
+    @price = data[@portfolio.investment.symbol]['regularMarketPrice']
   end
 
 end

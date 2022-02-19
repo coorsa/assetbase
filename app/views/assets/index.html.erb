@@ -1,8 +1,0 @@
-
-<%= render "shared/searchForm" %>
-
-<ol>
-  <% @assets.each do |asset| %>
-    <li>  <%= link_to asset.symbol, asset_path(asset) %> <%= asset.id %> </li>
-  <% end%>
-</ol>

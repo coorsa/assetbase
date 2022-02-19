@@ -9,22 +9,22 @@ require 'csv'
 
 Portfolio.destroy_all
 Bookmark.destroy_all
-Asset.destroy_all
+Investment.destroy_all
 User.destroy_all
 
 puts "creating crypto"
-bitcoin = Asset.create!(name: "Bitcoin", category: "Crypto", symbol: "BTC-USD")
-dogecoin = Asset.create!(name: "Dogecoin", category: "Crypto", symbol: "DOGE-USD")
-ethereum = Asset.create!(name: "Ethereum", category: "Crypto", symbol: "ETH-USD")
-polkadot = Asset.create!(name: "Polkadot", category: "Crypto", symbol: "DOT-USD")
-pancakeswap = Asset.create!(name: "PancakeSwap", category: "Crypto", symbol: "CAKE-USD")
+bitcoin = Investment.create!(name: "Bitcoin", category: "Crypto", symbol: "BTC-USD")
+dogecoin = Investment.create!(name: "Dogecoin", category: "Crypto", symbol: "DOGE-USD")
+ethereum = Investment.create!(name: "Ethereum", category: "Crypto", symbol: "ETH-USD")
+polkadot = Investment.create!(name: "Polkadot", category: "Crypto", symbol: "DOT-USD")
+pancakeswap = Investment.create!(name: "PancakeSwap", category: "Crypto", symbol: "CAKE-USD")
 puts "created crypto"
 
 puts "creating shares"
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'stocks_list.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  a = Asset.new
+  a = Investment.new
   a.name = row["Description"]
   a.category = "share"
   a.symbol = row["Symbol"]
@@ -42,13 +42,13 @@ portfolio_2 = Portfolio.create!(title: "Test", description: "Test portfolio2", u
 puts "created portfolios"
 
 puts "creating bookmark 1"
-a = Asset.last
-Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test")
-Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 2, date: "19/02/2022", comment: "test")
-Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: bitcoin.id, transaction_price: 150, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test2")
+a = Investment.last
+Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test")
+Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 2, date: "19/02/2022", comment: "test")
+Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: bitcoin.id, transaction_price: 150, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test2")
 puts "creating bookmark 2"
-Bookmark.create!(portfolio_id: portfolio_2.id, asset_id: ethereum.id, transaction_price: 10_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test3")
-Bookmark.create!(portfolio_id: portfolio_2.id, asset_id: dogecoin.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test4")
-Bookmark.create!(portfolio_id: portfolio_2.id, asset_id: pancakeswap.id, transaction_price: 10, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test5")
-Bookmark.create!(portfolio_id: portfolio_2.id, asset_id: polkadot.id, transaction_price: 10, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test6")
+Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: ethereum.id, transaction_price: 10_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test3")
+Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: dogecoin.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test4")
+Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: pancakeswap.id, transaction_price: 10, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test5")
+Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: polkadot.id, transaction_price: 10, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test6")
 puts "created bookmarks"
