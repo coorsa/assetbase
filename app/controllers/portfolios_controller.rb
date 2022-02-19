@@ -17,11 +17,22 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def show
+    @portfolio = Portfolio.find(params[:id])
+    # authorize @portfolio
+    # asset_price
+  end
 
   private
 
   def portfolio_params
     params.require(:portfolio).permit(:title, :description)
+  end
+
+  def asset_price
+    query = BasicYahooFinance::Query.new
+    data = query.quotes(@portfolio.asset.symbol)
+    @price = data[@portfolio.asset.symbol]['regularMarketPrice']
   end
 
 end

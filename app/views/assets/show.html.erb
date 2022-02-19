@@ -1,11 +1,16 @@
-<div>
-  <h1><%= @asset.name %></h1>
-</div>
-<div>
-  <p><strong>Ticker Symbol:</strong> <%= @asset.symbol %></p>
-</div>
-<div>
-  <p><strong>Category:</strong> <%= @asset.category %></p>
+<div class="container">
+  <div class="wrapper">
+    <h1><%= @asset.name %></h1>
+    <div>
+      <p><strong>Ticker Symbol:</strong> <%= @asset.symbol %></p>
+    </div>
+    <div>
+      <p><strong>Category:</strong> <%= @asset.category %></p>
+    </div>
+    <div>
+      <p><strong>Current price (<%= @info["currency"]%>):</strong> <%= @info["regularMarketPrice"] %></p>
+    </div>
+  </div>
 </div>
 <div class="text-center">
   <%= link_to "Add to portfolio", new_asset_bookmark_path(@asset), class: "btn btn-primary" %>
