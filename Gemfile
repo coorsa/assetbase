@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+# Finance API Gems
 gem 'basic_yahoo_finance'
 
 gem 'autoprefixer-rails', '10.2.5'
