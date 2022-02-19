@@ -11,5 +11,13 @@ class AssetsController < ApplicationController
 
   def show
     @asset = Asset.find(params[:id])
+    asset_price
+  end
+
+private
+  def asset_price
+    query = BasicYahooFinance::Query.new
+    data = query.quotes(@asset.symbol)
+    @info = data[@asset.symbol]
   end
 end
