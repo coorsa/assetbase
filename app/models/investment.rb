@@ -1,4 +1,4 @@
-class Asset < ApplicationRecord
+class Investment < ApplicationRecord
   has_many :bookmarks
 
   include PgSearch::Model

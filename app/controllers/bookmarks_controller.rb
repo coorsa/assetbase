@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :set_asset
+  before_action :set_investment
 
   def new
     @bookmark = Bookmark.new
@@ -8,14 +8,13 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    raise
     @bookmark = Bookmark.new(bookmark_params)
-    @bookmark.user = current_user
-    @bookmark.asset = @asset
+    # @bookmark.user = current_user
+    @bookmark.investment = @investment
     # authorize @bookmark
 
     if @bookmark.save
-      redirect_to assets_path, notice: "Asset Added to your Portfolio 🎉"
+      redirect_to investments_path, notice: "investment Added to your Portfolio 🎉"
     else
       render :new
     end
@@ -24,10 +23,10 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:date, :quantity, :transaction_price, :comment, :transaction_type, :asset_id, :portfolio_id)
+    params.require(:bookmark).permit(:date, :quantity, :transaction_price, :comment, :transaction_type, :investment_id, :portfolio_id)
   end
 
-  def set_asset
-    @asset = Asset.find(params[:asset_id])
+  def set_investment
+    @investment = Investment.find(params[:investment_id])
   end
 end
