@@ -2,12 +2,12 @@
   <h1> <%= @portfolio.title %> </h1>
   <small> <%= @portfolio.description %> </small>
   <ol>
-  <% @portfolio.assets.group_by(&:category).each do |category, assets| %>
+  <% @portfolio.investments.group_by(&:category).each do |category, investments| %>
     <li><%= category %></li>
     <ul>
-    <% @portfolio.assets.where(:category => category).group_by(&:name).each do |name, assets| %>
-      <li><%= link_to name, asset_path(assets) %><br>
-      <%= @portfolio.bookmarks.where(:asset_id => assets).sum(&:quantity) %>
+    <% @portfolio.investments.where(:category => category).group_by(&:name).each do |name, investments| %>
+      <li><%= link_to name, investment_path(investments) %><br>
+      <%= @portfolio.bookmarks.where(:investment_id => investments).sum(&:quantity) %>
       </li>
     <% end %>
     </ul>

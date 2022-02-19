@@ -15,17 +15,9 @@ ActiveRecord::Schema.define(version: 2022_02_17_194744) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "assets", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.string "symbol"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "bookmarks", force: :cascade do |t|
     t.bigint "portfolio_id", null: false
-    t.bigint "asset_id", null: false
+    t.bigint "investment_id", null: false
     t.float "transaction_price"
     t.string "transaction_type"
     t.float "quantity"
@@ -33,8 +25,16 @@ ActiveRecord::Schema.define(version: 2022_02_17_194744) do
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["asset_id"], name: "index_bookmarks_on_asset_id"
+    t.index ["investment_id"], name: "index_bookmarks_on_investment_id"
     t.index ["portfolio_id"], name: "index_bookmarks_on_portfolio_id"
+  end
+
+  create_table "investments", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.string "symbol"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2022_02_17_194744) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookmarks", "assets"
+  add_foreign_key "bookmarks", "investments"
   add_foreign_key "bookmarks", "portfolios"
   add_foreign_key "portfolios", "users"
 end

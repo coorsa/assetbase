@@ -1,0 +1,8 @@
+
+<%= render "shared/searchForm" %>
+
+<ol>
+  <% @investments.each do |investment| %>
+    <li>  <%= link_to investment.symbol, investment_path(investment) %> <%= investment.id %> </li>
+  <% end%>
+</ol>

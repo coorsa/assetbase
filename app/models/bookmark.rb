@@ -1,6 +1,6 @@
 class Bookmark < ApplicationRecord
   belongs_to :portfolio
-  belongs_to :asset
+  belongs_to :investment
 
   validates :transaction_price, presence: true
   validates :transaction_type, presence: true
