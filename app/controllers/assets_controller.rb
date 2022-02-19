@@ -8,4 +8,8 @@ class AssetsController < ApplicationController
       @saunas = Asset.all
     end
   end
+
+  def show
+    @asset = Asset.find(params[:id])
+  end
 end
