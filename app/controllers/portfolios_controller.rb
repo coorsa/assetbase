@@ -1,4 +1,6 @@
 class PortfoliosController < ApplicationController
+  def index
+  end
 
   def new
     @portfolio = Portfolio.new
@@ -15,11 +17,8 @@ class PortfoliosController < ApplicationController
       render :new
     end
   end
-  
-  def index
 
-  end
-  
+
   private
 
   def portfolio_params
