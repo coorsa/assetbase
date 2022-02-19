@@ -1,4 +1,6 @@
 class PortfoliosController < ApplicationController
+  def index
+  end
 
   def new
     @portfolio = Portfolio.new
@@ -7,17 +9,12 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio = Portfolio.new(portfolio_params)
-    @portfolio.user = current_user
     # authorize @portfolio
     if @portfolio.save
       redirect_to portfolio_path(@portfolio)
     else
       render :new
     end
-  end
-
-  def index
-
   end
 
   def show
