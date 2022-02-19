@@ -15,11 +15,16 @@ class PortfoliosController < ApplicationController
       render :new
     end
   end
-  
+
   def index
 
   end
-  
+
+  def show
+    @portfolio = Portfolio.find(params[:id])
+    # authorize @portfolio
+  end
+
   private
 
   def portfolio_params

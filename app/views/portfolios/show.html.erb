@@ -1,0 +1,14 @@
+<div class="container">
+  <h1> <%= @portfolio.title %> </h1>
+  <small> <%= @portfolio.description %> </small>
+  <ol>
+  <% @portfolio.assets.each do |group| %>
+    <li><%= group.category %></li>
+      <ul>
+        <% @portfolio.assets.where(:category => group.category).each do |asset| %>
+          <li><%= asset.name %> / Qty: </li>
+        <% end %>
+      </ul>
+  <% end %>
+  </ol>
+</div>
