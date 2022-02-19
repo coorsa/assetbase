@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_17_194744) do
+ActiveRecord::Schema.define(version: 2022_02_19_180416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2022_02_17_194744) do
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "investment_id", null: false
     t.index ["investment_id"], name: "index_bookmarks_on_investment_id"
     t.index ["portfolio_id"], name: "index_bookmarks_on_portfolio_id"
   end
