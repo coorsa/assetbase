@@ -3,6 +3,6 @@
 
 <ol>
   <% @assets.each do |asset| %>
-    <li>  <%= linkt_to asset.symbol, asset_path(asset) %> <%= asset.id %> </li>
+    <li>  <%= link_to asset.symbol, asset_path(asset) %> <%= asset.id %> </li>
   <% end%>
 </ol>
