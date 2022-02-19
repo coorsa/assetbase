@@ -15,7 +15,11 @@ class PortfoliosController < ApplicationController
       render :new
     end
   end
+  
+  def index
 
+  end
+  
   private
 
   def portfolio_params
