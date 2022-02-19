@@ -6,7 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Portfolio.destroy_all
+Bookmark.destroy_all
 Asset.destroy_all
+User.destroy_all
+
 
 puts "creating assets"
 asset_1 = Asset.create!(name: "Google", category: "Share", symbol: "GOOGL")
@@ -23,6 +27,6 @@ portfolio_1 = Portfolio.create!(title: "Test", description: "Test portfolio", us
 puts "created portfolio"
 
 puts "creating bookmark"
-Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: asset_1.id, transaction_price: "100", transaction_type: "Buy", quantity: 1, date: 18/02/2022, comment: "test")
-Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: asset_2.id, transaction_price: "150", transaction_type: "Buy", quantity: 1, date: 18/02/2022, comment: "test2")
+Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: asset_1.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: 18/02/2022, comment: "test")
+Bookmark.create!(portfolio_id: portfolio_1.id, asset_id: asset_2.id, transaction_price: 150, transaction_type: "Buy", quantity: 1, date: 18/02/2022, comment: "test2")
 puts "created bookmark"
