@@ -64,6 +64,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.2.5.0)
       execjs (< 2.8.0)
+    basic_yahoo_finance (0.2.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.10.3)
@@ -249,6 +250,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
+  basic_yahoo_finance
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
