@@ -1,15 +1,16 @@
 class PortfoliosController < ApplicationController
   def index
+    @portfolios = policy_scope(Portfolio).order(created_at: :desc)
   end
 
   def new
     @portfolio = Portfolio.new
-    # authorize @portfolio
+    authorize @portfolio
   end
 
   def create
     @portfolio = Portfolio.new(portfolio_params)
-    # authorize @portfolio
+    authorize @portfolio
     if @portfolio.save
       redirect_to portfolio_path(@portfolio)
     else
@@ -19,7 +20,7 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio = Portfolio.find(params[:id])
-    # authorize @portfolio
+    authorize @portfolio
     # asset_price
   end
 

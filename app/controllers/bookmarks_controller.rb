@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
 
   def new
     @bookmark = Bookmark.new
-    # authorize @bookmark
+    authorize @bookmark
 
   end
 
@@ -11,7 +11,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     # @bookmark.user = current_user
     @bookmark.investment = @investment
-    # authorize @bookmark
+    authorize @bookmark
 
     if @bookmark.save
       redirect_to investments_path, notice: "investment Added to your Portfolio 🎉"

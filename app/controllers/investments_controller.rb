@@ -1,5 +1,7 @@
 class InvestmentsController < ApplicationController
   def index
+    @investments = policy_scope(Investment).order(created_at: :desc)
+
     @query = params[:query]
     if @query.present?
       @query.slice!("investment")
@@ -12,10 +14,10 @@ class InvestmentsController < ApplicationController
   def show
     @investment = Investment.find(params[:id])
     investment_price
-
     if @investment.category == "Crypto"
       historical_crypto
     end
+    authorize @investment
   end
 
   private
