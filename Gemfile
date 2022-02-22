@@ -27,6 +27,9 @@ gem 'pg_search', '~> 2.3.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Use Pundit for Authorization
+gem 'pundit'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -34,6 +37,9 @@ gem 'devise'
 
 # Finance API Gems
 gem 'basic_yahoo_finance'
+gem 'cryptocompare'
+gem "chartkick"
+gem "alphavantagerb"
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

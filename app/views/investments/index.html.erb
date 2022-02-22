@@ -1,8 +1,12 @@
 
 <%= render "shared/searchForm" %>
 
-<ol>
-  <% @investments.each do |investment| %>
-    <li>  <%= link_to investment.symbol, investment_path(investment) %> <%= investment.id %> </li>
-  <% end%>
-</ol>
+<% if @investments.empty?%>
+  <p>NO ITEM WITH THAT NAME, WOULD YOU LIKE TO CREATE A NEW RECORD?<p>
+<% else %>
+  <ol>
+    <% @investments.each do |investment| %>
+      <li>  <%= link_to investment.symbol, investment_path(investment) %> <%= investment.id %> </li>
+    <% end%>
+  </ol>
+<% end %>
