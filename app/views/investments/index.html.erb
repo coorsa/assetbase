@@ -3,6 +3,7 @@
 
 <ol>
   <% @investments.each do |investment| %>
+    <%# <% if policy(investment).index? %>
     <li>  <%= link_to investment.symbol, investment_path(investment) %> <%= investment.id %> </li>
   <% end%>
 </ol>
