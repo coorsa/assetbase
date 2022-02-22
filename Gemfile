@@ -37,6 +37,9 @@ gem 'devise'
 
 # Finance API Gems
 gem 'basic_yahoo_finance'
+gem 'cryptocompare'
+gem "chartkick"
+gem "alphavantagerb"
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

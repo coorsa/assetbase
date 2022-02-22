@@ -14,6 +14,9 @@ class InvestmentsController < ApplicationController
   def show
     @investment = Investment.find(params[:id])
     investment_price
+    if @investment.category == "Crypto"
+      historical_crypto
+    end
     authorize @investment
   end
 
@@ -23,5 +26,13 @@ class InvestmentsController < ApplicationController
     query = BasicYahooFinance::Query.new
     data = query.quotes(@investment.symbol)
     @info = data[@investment.symbol]
+  end
+
+  def historical_crypto
+    @one_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 1.day.ago.strftime('%s') })
+    @seven_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 7.day.ago.strftime('%s') })
+    @fourteen_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 14.day.ago.strftime('%s') })
+    @twentyone_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 21.day.ago.strftime('%s') })
+    @twentyeight_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 28.day.ago.strftime('%s') })
   end
 end
