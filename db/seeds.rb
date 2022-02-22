@@ -38,7 +38,7 @@ puts "created users"
 
 puts "creating portfolios"
 portfolio_1 = Portfolio.create!(title: "Test", description: "Test portfolio", user_id: user_1.id)
-portfolio_2 = Portfolio.create!(title: "Test", description: "Test portfolio2", user_id: user_1.id)
+portfolio_2 = Portfolio.create!(title: "Test$$$", description: "Test portfolio2", user_id: user_1.id)
 puts "created portfolios"
 
 puts "creating bookmark 1"

@@ -1,17 +1,34 @@
 <div class="container">
-  <div class="wrapper">
-    <h1><%= @investment.name %></h1>
-    <div>
-      <p><strong>Ticker Symbol:</strong> <%= @investment.symbol %></p>
+  <div class="text-center" style="display:block">
+    <% if @info["coinImageUrl"] != nil  %>
+      <%= render "crypto" %>
+    <%else %>
+      <h1><%= @investment.name %></h1>
+    <%end %>
+      <div>
+        <p><strong>Ticker Symbol:</strong> <%= @investment.symbol %></p>
+      </div>
+
+      <div>
+        <p><strong>Category:</strong> <%= @investment.category %></p>
+      </div>
+
+      <div>
+        <p><strong>Current price (<%= @info["currency"]%>):</strong> <%= @info["regularMarketPrice"] %></p>
+      </div>
     </div>
-    <div>
-      <p><strong>Category:</strong> <%= @investment.category %></p>
-    </div>
-    <div>
-      <p><strong>Current price (<%= @info["currency"]%>):</strong> <%= @info["regularMarketPrice"] %></p>
-    </div>
-  </div>
-</div>
-<div class="text-center">
-  <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn btn-primary" %>
+
+
+      <div class="graph">
+        <% if @investment.category == "Crypto" %>
+          <%= render "cryptochart" %>
+        <% else %>
+          <p> Chart missing!</p>
+        <% end %>
+      </div>
+
+      <div class="text-center" style="margin-top: 16px">
+        <%= link_to "Back to assets page", investments_path, class: "btn btn-primary" %>
+        <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn btn-primary" %>
+   </div>
 </div>
