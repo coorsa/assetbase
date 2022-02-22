@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2022_02_19_180416) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.bigint "portfolio_id", null: false
-    t.bigint "investment_id", null: false
     t.float "transaction_price"
     t.string "transaction_type"
     t.float "quantity"
