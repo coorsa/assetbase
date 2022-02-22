@@ -1,18 +1,18 @@
 <div class="container" %>
   <%= simple_form_for [@investment, @bookmark] do |f| %>
     <div class="form-group">
-      <%= f.association :portfolio %>
+      <%= f.association :portfolio, placeholder: "The Portfolio that is gonna make you rich" %>
     <div class="form-group">
-      <%= f.input :comment, class: 'form-control' %>
+      <%= f.input :comment, placeholder: "The Portfolio that is gonna make you rich",class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.input :transaction_type, as: :select, collection: ["Buy", "Sell"], selected: "Buy", class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.input :transaction_price, class: 'form-control' %>
+      <%= f.input :transaction_price, label: "Transaction Price in £", placeholder: "Hopefully you are working in 6 figures", class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.input :quantity, class: 'form-control' %>
+      <%= f.input :quantity, placeholder: "How many did you get", class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.input :date, as: :date, class: 'form-control', label: "Buy Date" %>
