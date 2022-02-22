@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:new, :create]
   end
 
-  resources :portfolios, only:[:index, :new, :create, :show] do
+  resources :portfolios, only: [:index, :new, :create, :show] do
     # resources :bookmarks, only: [:index, :show, :edit, :update, :destroy ]
   end
 end
