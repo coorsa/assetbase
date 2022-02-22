@@ -16,6 +16,8 @@ class InvestmentsController < ApplicationController
     investment_price
     if @investment.category == "Crypto"
       historical_crypto
+    elsif @investment.category == "share"
+      historical_stocks
     end
     authorize @investment
   end
@@ -34,5 +36,10 @@ class InvestmentsController < ApplicationController
     @fourteen_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 14.day.ago.strftime('%s') })
     @twentyone_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 21.day.ago.strftime('%s') })
     @twentyeight_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 28.day.ago.strftime('%s') })
+  end
+
+  def historical_stocks
+    timeseries = Alphavantage::Timeseries.new symbol: @investment.symbol, key: "9W4H6IM5X71T33KS"
+    @time_array = timeseries.close("desc").first(50)
   end
 end

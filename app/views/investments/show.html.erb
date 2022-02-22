@@ -22,6 +22,8 @@
       <div class="graph">
         <% if @investment.category == "Crypto" %>
           <%= render "cryptochart" %>
+        <% elsif @investment.category == "share" %>
+          <%= render "stockchart" %>
         <% else %>
           <p> Chart missing!</p>
         <% end %>
