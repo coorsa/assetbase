@@ -2,3 +2,4 @@
 <% current_user.portfolios.each do |portfolio| %>
   <h2><%= link_to portfolio.title, portfolio_path(portfolio) %></h2>
 <% end %>
+<%= link_to "New list", new_portfolio_path %>

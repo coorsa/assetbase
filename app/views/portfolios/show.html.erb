@@ -7,11 +7,12 @@
     <ul>
     <% @portfolio.investments.where(:category => category).group_by(&:name).each do |name, investments| %>
       <li><%= link_to name, investment_path(investments) %><br>
-      <%= @portfolio.bookmarks.where(:investment_id => investments).sum(&:quantity) %>
+        <%= @portfolio.bookmarks.where(:investment_id => investments).sum(&:quantity) %>
       </li>
     <% end %>
     </ul>
   <% end %>
   </ol>
+  <p><%= link_to "Add investment to list", investments_path %></p>
   <%= link_to "< Back", portfolios_path %>
 </div>
