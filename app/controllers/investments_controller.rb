@@ -22,7 +22,27 @@ class InvestmentsController < ApplicationController
     authorize @investment
   end
 
+  def new
+    @investment = Investment.new
+    authorize @investment
+  end
+
+  def create
+    @investment = Investment.new(investment_params)
+    authorize @investment
+
+    if @investment.save
+      redirect_to investment_path(@investment)
+    else
+      render :new
+    end
+  end
+
   private
+
+  def investment_params
+    params.require(:investment).permit(:name, :category, :symbol)
+  end
 
   def investment_price
     query = BasicYahooFinance::Query.new
