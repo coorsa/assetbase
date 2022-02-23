@@ -16,11 +16,33 @@ class InvestmentsController < ApplicationController
     investment_price
     if @investment.category == "Crypto"
       historical_crypto
+    elsif @investment.category == "share"
+      historical_stocks
     end
     authorize @investment
   end
 
+  def new
+    @investment = Investment.new
+    authorize @investment
+  end
+
+  def create
+    @investment = Investment.new(investment_params)
+    authorize @investment
+
+    if @investment.save
+      redirect_to investment_path(@investment)
+    else
+      render :new
+    end
+  end
+
   private
+
+  def investment_params
+    params.require(:investment).permit(:name, :category, :symbol)
+  end
 
   def investment_price
     query = BasicYahooFinance::Query.new
@@ -34,5 +56,10 @@ class InvestmentsController < ApplicationController
     @fourteen_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 14.day.ago.strftime('%s') })
     @twentyone_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 21.day.ago.strftime('%s') })
     @twentyeight_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 28.day.ago.strftime('%s') })
+  end
+
+  def historical_stocks
+    timeseries = Alphavantage::Timeseries.new symbol: @investment.symbol, key: "9W4H6IM5X71T33KS"
+    @time_array = timeseries.close("desc").first(50)
   end
 end

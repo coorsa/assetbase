@@ -1,6 +1,6 @@
 <div class="container">
   <div class="text-center" style="display:block">
-    <% if @info["coinImageUrl"] != nil  %>
+    <% if @info.present? && @info["coinImageUrl"] != nil %>
       <%= render "crypto" %>
     <%else %>
       <h1><%= @investment.name %></h1>
@@ -13,15 +13,20 @@
         <p><strong>Category:</strong> <%= @investment.category %></p>
       </div>
 
+    <% if @info.present? %>
       <div>
         <p><strong>Current price (<%= @info["currency"]%>):</strong> <%= @info["regularMarketPrice"] %></p>
       </div>
+    <% end %>
+
     </div>
 
 
       <div class="graph">
         <% if @investment.category == "Crypto" %>
           <%= render "cryptochart" %>
+        <% elsif @investment.category == "share" %>
+          <%= render "stockchart" %>
         <% else %>
           <p> Chart missing!</p>
         <% end %>

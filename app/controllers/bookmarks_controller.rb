@@ -14,7 +14,7 @@ class BookmarksController < ApplicationController
     authorize @bookmark
 
     if @bookmark.save
-      redirect_to investments_path, notice: "investment Added to your Portfolio 🎉"
+      redirect_to portfolio_path(@bookmark.portfolio), notice: "investment Added to your Portfolio 🎉"
     else
       render :new
     end
