@@ -1,10 +1,15 @@
 class BookmarksController < ApplicationController
-  before_action :set_investment
+  before_action :set_investment, only: [:new, :create]
+  before_action :set_portfolio, only: [:show, :edit, :update]
+
+  def show
+    @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
+  end
 
   def new
     @bookmark = Bookmark.new
     authorize @bookmark
-
   end
 
   def create
@@ -20,6 +25,18 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def edit
+    @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
+  end
+
+  def update
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.update(bookmark_params)
+    authorize @bookmark
+    redirect_to portfolio_path(@bookmark.portfolio), notice: "investment updated 🎉"
+  end
+
   private
 
   def bookmark_params
@@ -28,5 +45,9 @@ class BookmarksController < ApplicationController
 
   def set_investment
     @investment = Investment.find(params[:investment_id])
+  end
+
+  def set_portfolio
+    @portfolio = Portfolio.find(params[:portfolio_id])
   end
 end

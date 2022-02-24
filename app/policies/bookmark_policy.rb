@@ -9,9 +9,9 @@ class BookmarkPolicy < ApplicationPolicy
   #   return true
   # end
 
-  # def show?
-  #   return true
-  # end
+  def show?
+    return true
+  end
 
   def create?
     return true
@@ -22,7 +22,8 @@ class BookmarkPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    # record.user == user
+    true
   end
 
   def destroy?
