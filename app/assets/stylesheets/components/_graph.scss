@@ -1,15 +1,37 @@
 .graph {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
-  padding-top: 16px;
+  margin-top: 20px;
   margin-bottom: 40px;
 }
 
-.title{
-  text-align: center;
-}
 
 .text-center > .btn {
+  border-radius: 8px;
+
+}
+
+
+.text-center > .btn {
+  background-image: linear-gradient(
+  90deg,
+  hsl(276deg, 98%, 74%) 0%,
+  hsl(274deg, 92%, 71%) 3%,
+  hsl(272deg, 87%, 69%) 9%,
+  hsl(270deg, 82%, 66%) 19%,
+  hsl(268deg, 78%, 63%) 38%,
+  hsl(266deg, 75%, 61%) 63%,
+  hsl(263deg, 72%, 58%) 79%,
+  hsl(261deg, 70%, 56%) 89%,
+  hsl(258deg, 68%, 53%) 95%,
+  hsl(254deg, 66%, 51%) 100%
+  );
+  border: none;
+}
+
+
+.no-chart{
+  background-color: hotpink;
+  padding: 60px;
   border-radius: 8px;
 }

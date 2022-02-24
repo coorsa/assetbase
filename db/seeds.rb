@@ -13,11 +13,11 @@ Investment.destroy_all
 User.destroy_all
 
 puts "creating crypto"
-bitcoin = Investment.create!(name: "Bitcoin", category: "Crypto", symbol: "BTC-USD")
-dogecoin = Investment.create!(name: "Dogecoin", category: "Crypto", symbol: "DOGE-USD")
-ethereum = Investment.create!(name: "Ethereum", category: "Crypto", symbol: "ETH-USD")
-polkadot = Investment.create!(name: "Polkadot", category: "Crypto", symbol: "DOT-USD")
-pancakeswap = Investment.create!(name: "PancakeSwap", category: "Crypto", symbol: "CAKE-USD")
+bitcoin = Investment.create!(name: "Bitcoin", category: "crypto", symbol: "BTC-USD")
+dogecoin = Investment.create!(name: "Dogecoin", category: "crypto", symbol: "DOGE-USD")
+ethereum = Investment.create!(name: "Ethereum", category: "crypto", symbol: "ETH-USD")
+polkadot = Investment.create!(name: "Polkadot", category: "crypto", symbol: "DOT-USD")
+pancakeswap = Investment.create!(name: "PancakeSwap", category: "crypto", symbol: "CAKE-USD")
 puts "created crypto"
 
 puts "creating shares"
