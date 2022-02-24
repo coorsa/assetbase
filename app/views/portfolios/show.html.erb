@@ -1,6 +1,7 @@
 <div class="container">
   <h1> <%= @portfolio.title %> </h1>
   <small> <%= @portfolio.description %> </small>
+  <p>Total value = <%= @portfolio_value.round(2) %></p>
   <ol>
   <% @portfolio.investments.group_by(&:category).each do |category, investments| %>
     <li><%= category %></li>
