@@ -1,3 +1,4 @@
-<%= line_chart @array, width: "90%", colors: ["hsl(125deg, 59%, 50%)"],
+
+<%= line_chart @array, colors: ["hsl(125deg, 59%, 50%)"],
     points: false, title: " #{@investment.name} - 30 day chart",
-    loading: "Loading..." %>
+    loading: "Loading...", min: @info["regularMarketPrice"]*0.25, max: @info["regularMarketPrice"]*2 %>

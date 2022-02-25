@@ -8,7 +8,7 @@
   </div>
 <% else %>
   <ol>
-    <% @investments.each do |investment| %>
+    <% @investments.shuffle.first(50).each do |investment| %>
       <li>  <%= link_to investment.symbol, investment_path(investment) %> <%= investment.id %> </li>
     <% end%>
   </ol>

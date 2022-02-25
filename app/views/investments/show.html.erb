@@ -1,41 +1,56 @@
-<div class="container">
-
-  <div class="text-center" style="display:block">
+<div class="wrapper">
+  <div class="asset-wrapper">
     <% if @info.present? && @info["coinImageUrl"] != nil %>
       <%= render "crypto" %>
     <%elsif @investment.category == "share" && @clearbit.present? == true %>
-      <%= render "share"%>
+      <%= render "share" %>
     <% else %>
     <h1><%= @investment.name %></h1>
     <%end %>
 
-  <div class="info-wrapper">
-    <p><strong>Ticker Symbol:</strong> <%= @investment.symbol %></p>
-    <p><strong>Category:</strong> <%= @investment.category.capitalize %></p>
+    <div class="info-wrapper">
+      <div class="info-1">
+        <p><strong>Symbol:</strong> <%= @investment.symbol %></p>
+        <p><strong>Category:</strong> <%= @investment.category.capitalize %></p>
+      </div>
+
     <% if @info.present? %>
       <div>
         <p><strong>Current price (<%= @info["currency"]%>):</strong> <%= @info["regularMarketPrice"] %></p>
       </div>
     <% end %>
-  </div>
 
-
-  </div>
-
-
-      <div class="graph">
-        <% if @investment.category == "Crypto" %>
-          <%= render "cryptochart" %>
-        <% elsif @investment.category == "share" %>
-          <%= render "stockchart" %>
-        <% else %>
-            <p class="no-chart"> Chart not available</p>
-        <% end %>
+    <% if @investment.category == 'share' && @info["regularMarketChangePercent"].present? %>
+      <div>
+        <p><strong>Market change:</strong> <%= @info["regularMarketChangePercent"].round(2)%>%</p>
       </div>
+    <% end %>
 
-      <div class="text-center" style="margin-top: 16px">
-        <%= link_to "Back to assets page", investments_path, class: "btn btn-primary" %>
-        <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn btn-primary" %>
-   </div>
+    <% if @investment.category == 'share' && @info["dividendDate"].present?  %>
+      <div>
+        <p><strong>Dividend date:</strong> <%= Time.at(@info["dividendDate"]).to_date %></p>
+      </div>
+    <% end %>
+  </div>
 
+
+
+    <%# <div class="graph"> %>
+      <% if @investment.category == "crypto" %>
+        <%= render "cryptochart" %>
+      <% elsif @investment.category == "share" && @info["regularMarketPrice"].present? == true  %>
+        <%= render "stockchart" %>
+      <% elsif @investment.category = "share" && @info["regularMarketPrice"].present? == false %>
+        <%= render "basicstockchart" %>
+      <% else %>
+          <p class="no-chart"> Chart not available</p>
+      <% end %>
+    <%# </div> %>
+  </div>
+</div>
+
+
+<div class="text-center" style="margin-top: 16px">
+  <%= link_to "Back to assets page", investments_path, class: "btn btn-primary" %>
+  <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn btn-primary" %>
 </div>
