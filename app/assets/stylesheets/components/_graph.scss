@@ -1,7 +1,7 @@
 #chart-1 {
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: white;
+  background-color: $white;
   border-radius: 8px;
   max-width: 390px;
   padding: 8px;
@@ -30,7 +30,7 @@
 
 
 .no-chart{
-  background-color: hotpink;
+  background-color: $hotpink;
   padding: 60px;
   border-radius: 8px;
 }

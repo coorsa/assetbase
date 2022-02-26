@@ -1,12 +1,13 @@
 
 <div class="title-wrapper">
   <h1>
-  <% if @info["displayName"].present? %>
-    <%= @info["displayName"] %>
-  <% else %>
-    <%= @investment.name %>
-  <% end %>
-  <% if @clearbit.logo.present? %>
-    <%= link_to image_tag(@clearbit.logo), "http://www.#{@clearbit.domain}", :target => "_blank" %> </h1>
-  <% end %>
+    <% if @info["displayName"].present? %>
+      <%= @info["displayName"] %>
+    <% else %>
+      <%= @investment.name %>
+    <% end %>
+    <% if @clearbit.logo.present? %>
+      <%= link_to image_tag(@clearbit.logo, class: "investment-logo"), "http://www.#{@clearbit.domain}", :target => "_blank" %>
+    <% end %>
+  </h1>
 </div>

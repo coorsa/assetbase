@@ -23,35 +23,34 @@
     </div>
   </div>
 
-<div class="container card_container">
+<div class="container investment-container">
   <div class="row">
     <div class="col d-flex align-items-center">
-      <h3>Assets</h3> <%= link_to "", investments_path, class: "fa fa-plus" %>
+      <h3>Assets</h3> <%= link_to "", investments_path, class: "plus-symbol fa fa-plus" %>
     </div>
     <div class="col text-right">
-      <i class="fa fa-pen"></i>
+      <i class="pen-symbol fa fa-pen"></i>
     </div>
   </div>
 
-     <% @portfolio.investments.each do |investment| %>
-      <div class="row no-gutters">
-      <%# <div class="card my-2"> %>
-        <div class="col-3">
-          <%= link_to investment.symbol, investment_path(investment), class: "stretched-link" %>
-          <p><%= investment.name %></p>
-        </div>
-        <div class="col-6">
-          <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
-        </div>
-        <div class="col-3 text-right">
-          <text>$ 1,305.53</text>
-          <p>.......</p>
-        </div>
+  <% @portfolio.investments.each do |investment| %>
+    <div class="row no-gutters">
+      <div class="col-3">
+        <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol" %>
+          <p class="investment-name"><%= investment.name %></p>
       </div>
-    <% end%>
-      <%# </div> %>
-    <%= link_to 'Edit Portfolio', edit_portfolio_path, class: "text-warning" %>
-    <%= link_to "Delete Portfolio", portfolio_path(@portfolio), method: :delete, data:{ confirm: "Are you sure?" } %>
+      <div class="col-6">
+        <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
+      </div>
+      <div class="col-3 text-right">
+        <text>$ 1,305.53</text>
+        <p>.......</p>
+      </div>
+    </div>
+  <% end%>
+
+  <%= link_to 'Edit Portfolio', edit_portfolio_path, class: "text-warning" %>
+  <%= link_to "Delete Portfolio", portfolio_path(@portfolio), method: :delete, data:{ confirm: "Are you sure?" } %>
 
  </div>
 

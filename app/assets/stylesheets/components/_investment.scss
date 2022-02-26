@@ -31,7 +31,7 @@
 }
 
 .asset-wrapper h1 {
-  color: white;
+  color: $white;
   font-size: 1.6rem;
   min-width: 300px;
   max-width: 300px;
@@ -82,37 +82,16 @@ body {
   align-items: center;
 }
 
-
-// PARAGRAPH STYLING//////////
-.wrapper  p {
-  color: white;
-}
-
-.new-asset-wrapper > p {
-  text-align: center;
-  color: #FFFFFF;
-}
-/////////////////////////////
-
 // PADDING FOR LOGOS////////
-h1 > a >  img {
+.investment-logo {
   max-height: 35px;
   border-radius: 8px;
-  background: white;
+  background: $white;
   padding: 6px;
 }
-
-
-h1 > img {
-  max-height: 35px;
-  border-radius: 8px;
-  background: white;
-  padding: 6px;
-}
-///////////////////////
 
 // BUTTON STYLING ///////
-.new-asset-wrapper > p > .btn {
+.add-new-asset-btn {
   background-image: linear-gradient(
   90deg,
   hsl(276deg, 98%, 74%) 0%,

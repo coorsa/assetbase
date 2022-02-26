@@ -1,1 +1,4 @@
-<h1><%= @investment.name %> <%= image_tag @info["coinImageUrl"] %></h1>
+<h1>
+  <%= @investment.name %>
+  <%= image_tag @info["coinImageUrl"], class: "investment-logo" %>
+</h1>
