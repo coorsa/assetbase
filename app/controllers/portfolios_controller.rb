@@ -1,4 +1,6 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio, only: [:show, :destroy]
+
   def index
     @portfolios = policy_scope(Portfolio).order(created_at: :desc)
   end
@@ -20,9 +22,14 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio = Portfolio.find(params[:id])
     authorize @portfolio
-    # asset_price
+  end
+
+  def destroy
+    @portfolio.user = current_user
+    authorize @portfolio
+    @portfolio.destroy
+    redirect_to portfolios_path
   end
 
   private
@@ -35,6 +42,10 @@ class PortfoliosController < ApplicationController
     query = BasicYahooFinance::Query.new
     data = query.quotes(@portfolio.investment.symbol)
     @price = data[@portfolio.investment.symbol]['regularMarketPrice']
+  end
+
+  def set_portfolio
+    @portfolio = Portfolio.find(params[:id])
   end
 
 end
