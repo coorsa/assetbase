@@ -1,5 +1,6 @@
 <h1>Portfolio index</h1>
 <% current_user.portfolios.each do |portfolio| %>
   <h2><%= link_to portfolio.title, portfolio_path(portfolio) %></h2>
+  <%= link_to "Delete Portfolio", portfolio_path(portfolio), method: :delete, data:{ confirm: "Are you sure?" } %>
 <% end %>
 <%= link_to "New list", new_portfolio_path %>

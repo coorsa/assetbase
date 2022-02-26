@@ -1,4 +1,6 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio, only: [:show, :destroy]
+
   def index
     @portfolios = policy_scope(Portfolio).order(created_at: :desc)
   end
@@ -20,7 +22,6 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio = Portfolio.find(params[:id])
     authorize @portfolio
     @portfolio_value = 0
     @portfolio.investments.each do |investment|
@@ -28,6 +29,13 @@ class PortfoliosController < ApplicationController
         @portfolio_value += investment_price(investment)["regularMarketPrice"] * bookmark.quantity
       end
     end
+  end
+
+  def destroy
+    @portfolio.user = current_user
+    authorize @portfolio
+    @portfolio.destroy
+    redirect_to portfolios_path
   end
 
   private
@@ -41,4 +49,9 @@ class PortfoliosController < ApplicationController
     data = query.quotes(investment.symbol)
     @info = data[investment.symbol]
   end
+
+  def set_portfolio
+    @portfolio = Portfolio.find(params[:id])
+  end
+
 end
