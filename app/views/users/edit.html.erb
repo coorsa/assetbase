@@ -1,0 +1,22 @@
+<%= simple_form_for(profile_pathc) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, required: false, label: "Update your name" %>
+    <%= f.text_field :name, required: false, class: 'form-control'. :value => @user.name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, required: false, label: "Update your email" %>
+    <%= f.text_field :email, required: false, class: 'form-control'. :value => @user.email %>
+  </div>
+  <div class="form-group">
+    <%= f.label :currency, required: false, label: "Update your currency" %>
+    <%= f.text_field :currency, required: false, class: 'form-control'. :value => @user.currency %>
+  </div>
+  <div class="form-group">
+    <%= f.label :img_url, required: false, label: "Update your profile picture" %>
+    <%= f.text_field :img_url, required: false, class: 'form-control'. :value => @user.img_url %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Update", class: 'btn btn-outline-primary' %>
+    <%= link_to 'Cancel', profile_path, class: 'btn btn-outline-warning' %>
+  </div>
+<% end %>

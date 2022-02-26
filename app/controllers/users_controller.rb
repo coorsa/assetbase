@@ -4,21 +4,21 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  # def edit
-  #   @user = current_user
-  #   authorize @user
-  # end
+  def edit
+    @user = current_user
+    authorize @user
+  end
 
-  # def update
-  #   @user = current_user
-  #   @user.update(user_params)
-  #   authorize @user
-  #   redirect_to profile_path
-  # end
+  def update
+    @user = current_user
+    @user.update(user_params)
+    authorize @user
+    redirect_to profile_path
+  end
 
-  # private
+  private
 
-  # def user_params
-  #   params.require("/profile").permit(:name, :address, :phone_number)
-  # end
+  def user_params
+    params.require("/profile").permit(:email, :name, :img_url, :currency)
+  end
 end
