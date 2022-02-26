@@ -1,10 +1,20 @@
 class BookmarksController < ApplicationController
-  before_action :set_investment
+  before_action :set_investment, only: [:new, :create]
+  before_action :set_portfolio, only: [:index, :show, :edit, :update]
+
+  def index
+    @bookmarks = policy_scope(Bookmark).order(created_at: :desc)
+    @query = params[:investment_id]
+    if @query.present?
+      @bookmarks = Bookmark.where(investment_id: @query, portfolio: @portfolio)
+    else
+      @bookmarks = Bookmark.all
+    end
+  end
 
   def new
     @bookmark = Bookmark.new
     authorize @bookmark
-
   end
 
   def create

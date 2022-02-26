@@ -22,6 +22,7 @@ class PortfoliosController < ApplicationController
   def show
     @portfolio = Portfolio.find(params[:id])
     authorize @portfolio
+
     @portfolio_value = 0
     @portfolio.investments.each do |investment|
       investment.bookmarks.each do |bookmark|
