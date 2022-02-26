@@ -1,2 +1,7 @@
 Chartkick.options = { library: { animation: { easing: 'easeOutQuart' },
-                      plugins: { title: { display: "true", color: "#c358fe", font: {size: 16} } } } }
+                                  plugins: { title:
+                                    { display: "true", color: "black",
+                                       font: {size: 16} } },
+                                       scales: {y: {
+                                         display: false }}
+                     }}

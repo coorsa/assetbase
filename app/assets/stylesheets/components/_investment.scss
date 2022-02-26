@@ -1,0 +1,131 @@
+.new-asset-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 16px 40px;
+  border-radius: 8px;
+  padding: 8px;
+  background-image: linear-gradient(
+  0deg,
+  hsl(267deg, 52%, 19%) 1%,
+  hsl(267deg, 51%, 19%) 28%,
+  hsl(267deg, 51%, 18%) 37%,
+  hsl(267deg, 51%, 18%) 44%,
+  hsl(268deg, 51%, 17%) 49%,
+  hsl(268deg, 51%, 16%) 55%,
+  hsl(268deg, 51%, 16%) 60%,
+  hsl(268deg, 51%, 15%) 66%,
+  hsl(269deg, 51%, 14%) 74%,
+  hsl(269deg, 51%, 14%) 93%
+);
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  max-width: 320px;
+  width: 320px;
+}
+
+.asset-wrapper h1 {
+  color: white;
+  font-size: 1.6rem;
+  min-width: 300px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.info-wrapper {
+  margin-top: 16px;
+  text-align: center;
+}
+
+
+.asset-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 24px;
+  border-radius: 12px;
+  background-image: linear-gradient(
+    0deg,
+    hsl(269deg, 53%, 42%) 0%,
+    hsl(269deg, 53%, 40%) 4%,
+    hsl(269deg, 53%, 38%) 9%,
+    hsl(269deg, 53%, 35%) 16%,
+    hsl(269deg, 53%, 33%) 24%,
+    hsl(269deg, 53%, 30%) 33%,
+    hsl(269deg, 53%, 28%) 44%,
+    hsl(269deg, 52%, 25%) 57%,
+    hsl(269deg, 52%, 23%) 74%,
+    hsl(269deg, 52%, 21%) 100%
+  );
+}
+
+.info-1{
+  display: flex;
+  gap: 8px;
+}
+
+body {
+  background-color: $dark-purple;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+// PARAGRAPH STYLING//////////
+.wrapper  p {
+  color: white;
+}
+
+.new-asset-wrapper > p {
+  text-align: center;
+  color: #FFFFFF;
+}
+/////////////////////////////
+
+// PADDING FOR LOGOS////////
+h1 > a >  img {
+  max-height: 35px;
+  border-radius: 8px;
+  background: white;
+  padding: 6px;
+}
+
+
+h1 > img {
+  max-height: 35px;
+  border-radius: 8px;
+  background: white;
+  padding: 6px;
+}
+///////////////////////
+
+// BUTTON STYLING ///////
+.new-asset-wrapper > p > .btn {
+  background-image: linear-gradient(
+  90deg,
+  hsl(276deg, 98%, 74%) 0%,
+  hsl(274deg, 92%, 71%) 3%,
+  hsl(272deg, 87%, 69%) 9%,
+  hsl(270deg, 82%, 66%) 19%,
+  hsl(268deg, 78%, 63%) 38%,
+  hsl(266deg, 75%, 61%) 63%,
+  hsl(263deg, 72%, 58%) 79%,
+  hsl(261deg, 70%, 56%) 89%,
+  hsl(258deg, 68%, 53%) 95%,
+  hsl(254deg, 66%, 51%) 100%
+  );
+  border: none;
+}
+//////////////////////////////

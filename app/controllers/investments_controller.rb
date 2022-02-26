@@ -14,10 +14,11 @@ class InvestmentsController < ApplicationController
   def show
     @investment = Investment.find(params[:id])
     investment_price
-    if @investment.category == "Crypto"
+    if @investment.category == "crypto"
       historical_crypto
     elsif @investment.category == "share"
       historical_stocks
+      company_info
     end
     authorize @investment
   end
@@ -51,15 +52,24 @@ class InvestmentsController < ApplicationController
   end
 
   def historical_crypto
-    @one_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 1.day.ago.strftime('%s') })
-    @seven_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 7.day.ago.strftime('%s') })
-    @fourteen_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 14.day.ago.strftime('%s') })
-    @twentyone_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 21.day.ago.strftime('%s') })
-    @twentyeight_day_ago = Cryptocompare::PriceHistorical.find(@info["fromCurrency"], 'USD', {'ts' => 28.day.ago.strftime('%s') })
+    data = Cryptocompare::HistoDay.find(@info["fromCurrency"], 'USD')["Data"]
+    @array = []
+    data.each do |item|
+      @array << [Time.at(item["time"]).to_date.to_s, item["close"]]
+    end
   end
 
   def historical_stocks
-    timeseries = Alphavantage::Timeseries.new symbol: @investment.symbol, key: "9W4H6IM5X71T33KS"
+    timeseries = Alphavantage::Timeseries.new symbol: @investment.symbol, key: ENV['ALPHAVANTAGE_KEY']
     @time_array = timeseries.close("desc").first(50)
+  end
+
+  def company_info
+    Clearbit.key = ENV['CLEARBIT_KEY']
+    if @info["displayName"].present?
+      @clearbit = Clearbit::NameDomain.find(name: @info["displayName"])
+    else
+      @clearbit = Clearbit::NameDomain.find(name: @investment.name)
+    end
   end
 end

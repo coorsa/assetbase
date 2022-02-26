@@ -23,6 +23,12 @@ class PortfoliosController < ApplicationController
 
   def show
     authorize @portfolio
+    @portfolio_value = 0
+    @portfolio.investments.each do |investment|
+      investment.bookmarks.each do |bookmark|
+        @portfolio_value += investment_price(investment)["regularMarketPrice"] * bookmark.quantity
+      end
+    end
   end
 
   def destroy
@@ -38,10 +44,10 @@ class PortfoliosController < ApplicationController
     params.require(:portfolio).permit(:title, :description)
   end
 
-  def investment_price
+  def investment_price(investment)
     query = BasicYahooFinance::Query.new
-    data = query.quotes(@portfolio.investment.symbol)
-    @price = data[@portfolio.investment.symbol]['regularMarketPrice']
+    data = query.quotes(investment.symbol)
+    @info = data[investment.symbol]
   end
 
   def set_portfolio
