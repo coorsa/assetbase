@@ -2,7 +2,10 @@
 <%= render "shared/searchForm" %>
 
 <% if @investments.empty?%>
-  <p>NO ITEM WITH THAT NAME, WOULD YOU LIKE TO CREATE A NEW RECORD?<p>
+  <div class="new-asset-wrapper">
+    <p>NO ITEM WITH THAT NAME, WOULD YOU LIKE TO CREATE A NEW RECORD? OR TRY SEARCHING AGAIN?<p>
+    <%= link_to " ADD NEW ASSET", new_investment_path, class: "btn btn-primary" %>
+  </div>
 <% else %>
   <ol>
     <% @investments.each do |investment| %>

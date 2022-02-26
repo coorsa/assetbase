@@ -1,9 +1,3 @@
-<%= line_chart [
-  [Date.today, @info["regularMarketPrice"]],
-  [Date.today - 1, @one_day_ago[@info["fromCurrency"]]["USD"]],
-  [Date.today - 7, @seven_day_ago[@info["fromCurrency"]]["USD"]],
-  [Date.today - 14, @fourteen_day_ago[@info["fromCurrency"]]["USD"]],
-  [Date.today - 21, @twentyone_day_ago[@info["fromCurrency"]]["USD"]],
-  [Date.today - 28, @twentyeight_day_ago[@info["fromCurrency"]]["USD"]]
-  ], width: "90%", colors: ["hsl(125deg, 59%, 50%)"], points: false, title: " #{@investment.name} - 30 day chart",
-  loading: "Loading..." %>
+<%= line_chart @array, width: "90%", colors: ["hsl(125deg, 59%, 50%)"],
+    points: false, title: " #{@investment.name} - 30 day chart",
+    loading: "Loading..." %>

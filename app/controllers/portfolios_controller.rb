@@ -10,6 +10,7 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio = Portfolio.new(portfolio_params)
+    @portfolio.user = current_user
     authorize @portfolio
     if @portfolio.save
       redirect_to portfolio_path(@portfolio)
@@ -21,7 +22,12 @@ class PortfoliosController < ApplicationController
   def show
     @portfolio = Portfolio.find(params[:id])
     authorize @portfolio
-    # asset_price
+    @portfolio_value = 0
+    @portfolio.investments.each do |investment|
+      investment.bookmarks.each do |bookmark|
+        @portfolio_value += investment_price(investment)["regularMarketPrice"] * bookmark.quantity
+      end
+    end
   end
 
   private
@@ -30,10 +36,9 @@ class PortfoliosController < ApplicationController
     params.require(:portfolio).permit(:title, :description)
   end
 
-  def investment_price
+  def investment_price(investment)
     query = BasicYahooFinance::Query.new
-    data = query.quotes(@portfolio.investment.symbol)
-    @price = data[@portfolio.investment.symbol]['regularMarketPrice']
+    data = query.quotes(investment.symbol)
+    @info = data[investment.symbol]
   end
-
 end

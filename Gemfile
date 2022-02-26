@@ -40,6 +40,7 @@ gem 'basic_yahoo_finance'
 gem 'cryptocompare'
 gem "chartkick"
 gem "alphavantagerb"
+gem 'clearbit'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
