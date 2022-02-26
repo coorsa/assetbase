@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(user_params)
     authorize @user
+    redirect_to profile_path
   end
 
   private

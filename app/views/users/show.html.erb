@@ -1,0 +1,6 @@
+<% if @user.id == current_user.id %>
+  <h5>Welcome user number <%= current_user.id %></h5>
+  <%= link_to 'Edit profile', 'profile/edit' %>
+<% else %>
+  <% controller.redirect_to root_path %>
+<% end %>
