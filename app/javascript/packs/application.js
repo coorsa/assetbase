@@ -23,7 +23,7 @@ ActiveStorage.start()
 import "bootstrap";
 import "chartkick/chart.js";
 import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css"
+import "flatpickr/dist/themes/dark.css"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -33,4 +33,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
-flatpickr("#bookmark_date")
+flatpickr("#bookmark_date", {
+  altInput: true,
+  disableMobile: true
+})
