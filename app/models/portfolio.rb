@@ -3,4 +3,6 @@ class Portfolio < ApplicationRecord
 
   has_many :bookmarks, dependent: :destroy
   has_many :investments, through: :bookmarks
+
+  validates :title, presence: true
 end
