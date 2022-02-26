@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:edit, :update]
   root to: 'pages#home'
   get '/profile', to: 'users#show'
   get '/profile/edit', to: 'users#edit'

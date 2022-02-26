@@ -44,3 +44,14 @@
 h1, h2, h5 {
   color: white;
 }
+
+.full-img {
+    background-image: image-url("logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+}
+
+.logo-height {
+  height: 200px;
+}
