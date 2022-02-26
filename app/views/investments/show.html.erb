@@ -5,7 +5,7 @@
     <%elsif @investment.category == "share" && @clearbit.present? == true %>
       <%= render "share" %>
     <% else %>
-    <h1><%= @investment.name %></h1>
+      <h1><%= @investment.name %></h1>
     <%end %>
 
     <div class="info-wrapper">
