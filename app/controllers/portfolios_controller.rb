@@ -22,12 +22,7 @@ class PortfoliosController < ApplicationController
   def show
     @portfolio = Portfolio.find(params[:id])
     authorize @portfolio
-    @portfolio_value = 0
-    @portfolio.investments.each do |investment|
-      investment.bookmarks.each do |bookmark|
-        @portfolio_value += investment_price(investment)["regularMarketPrice"] * bookmark.quantity
-      end
-    end
+    @portfolio_value = investment_price(portfolio_symbols)
   end
 
   private
@@ -36,9 +31,24 @@ class PortfoliosController < ApplicationController
     params.require(:portfolio).permit(:title, :description)
   end
 
-  def investment_price(investment)
+  def investment_price(symbols)
     query = BasicYahooFinance::Query.new
-    data = query.quotes(investment.symbol)
-    @info = data[investment.symbol]
+    data = query.quotes(symbols)
+    @value = 0
+    @info = data
+    @portfolio.investments.each do |investment|
+      investment.bookmarks.each do |bookmark|
+        @value += @info[investment.symbol]["regularMarketPrice"] * bookmark.quantity
+      end
+    end
+    @value
+  end
+
+  def portfolio_symbols
+    @symbols = []
+    @portfolio.investments.each do |investment|
+      @symbols.push(investment.symbol) unless @symbols.include?(investment.symbol)
+    end
+    @symbols
   end
 end
