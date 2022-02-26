@@ -1,19 +1,51 @@
 <div class="container">
-  <h1> <%= @portfolio.title %> </h1>
-  <small> <%= @portfolio.description %> </small>
-  <p>Total value = <%= @portfolio_value.round(2) %></p>
-  <ol>
-  <% @portfolio.investments.group_by(&:category).each do |category, investments| %>
-    <li><%= category %></li>
-    <ul>
-    <% @portfolio.investments.where(:category => category).group_by(&:name).each do |name, investments| %>
-      <li><%= link_to name, investment_path(investments) %><br>
-        <%= @portfolio.bookmarks.where(:investment_id => investments).sum(&:quantity) %>
-      </li>
-    <% end %>
-    </ul>
-  <% end %>
-  </ol>
-  <p><%= link_to "Add investment to list", investments_path %></p>
-  <%= link_to "< Back", portfolios_path %>
-</div>
+  <div class="row">
+    <div class="col">
+      <%= link_to "", portfolios_path, class: "fa fa-arrow-left fa-xl" %>
+    </div>
+    <div class="col">
+      <h1> <%= @portfolio.title %> </h1>
+    </div>
+    <div class="col">
+      <h2>. . .<h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <p>Total value = <%= @portfolio_value.round(2) %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <h5><%= @portfolio.description %></h5>
+    </div>
+  </div>
+
+<div class="container card_container">
+  <div class="row">
+    <div class="col d-flex align-items-center">
+      <h3>Assets</h3> <%= link_to "", investments_path, class: "fa fa-plus" %>
+    </div>
+    <div class="col text-right">
+      <i class="fa fa-pen"></i>
+    </div>
+  </div>
+
+     <% @portfolio.investments.each do |investment| %>
+      <div class="row no-gutters">
+      <%# <div class="card my-2"> %>
+        <div class="col-3">
+          <%= link_to investment.symbol, investment_path(investment), class: "stretched-link" %>
+          <p><%= investment.name %></p>
+        </div>
+        <div class="col-6">
+          <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
+        </div>
+        <div class="col-3 text-right">
+          <text>$ 1,305.53</text>
+          <p>.......</p>
+        </div>
+      </div>
+    <% end%>
+      <%# </div> %>
+ </div>
