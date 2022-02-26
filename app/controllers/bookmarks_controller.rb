@@ -12,6 +12,11 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def show
+    @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
+  end
+
   def new
     @bookmark = Bookmark.new
     authorize @bookmark
@@ -24,10 +29,22 @@ class BookmarksController < ApplicationController
     authorize @bookmark
 
     if @bookmark.save
-      redirect_to portfolio_path(@bookmark.portfolio_id), notice: "investment Added to your Portfolio 🎉"
+      redirect_to portfolio_path(@bookmark.portfolio), notice: "investment Added to your Portfolio 🎉"
     else
       render :new
     end
+  end
+
+  def edit
+    @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
+  end
+
+  def update
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.update(bookmark_params)
+    authorize @bookmark
+    redirect_to portfolio_path(@bookmark.portfolio), notice: "investment updated 🎉"
   end
 
   private
@@ -38,5 +55,13 @@ class BookmarksController < ApplicationController
 
   def set_investment
     @investment = Investment.find(params[:investment_id])
+  end
+
+  def set_portfolio
+    @portfolio = Portfolio.find(params[:portfolio_id])
+  end
+
+  def match_portfolio_and_bookmark
+    @portfolio = @bookmark.portfolio_id
   end
 end
