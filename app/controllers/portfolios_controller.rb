@@ -1,4 +1,6 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio, only: [:show, :destroy, :edit, :update]
+
   def index
     @portfolios = policy_scope(Portfolio).order(created_at: :desc)
   end
@@ -20,14 +22,27 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio = Portfolio.find(params[:id])
     authorize @portfolio
+    @portfolio_value = investment_price(portfolio_symbols)
+  end
 
-    @portfolio_value = 0
-    @portfolio.investments.each do |investment|
-      investment.bookmarks.each do |bookmark|
-        @portfolio_value += investment_price(investment)["regularMarketPrice"] * bookmark.quantity
-      end
+  def destroy
+    @portfolio.user = current_user
+    authorize @portfolio
+    @portfolio.destroy
+    redirect_to portfolios_path
+  end
+
+  def edit
+    authorize @portfolio
+  end
+
+  def update
+    authorize @portfolio
+    if @portfolio.update(portfolio_params)
+      redirect_to portfolio_path(@portfolio)
+    else
+      render :edit
     end
   end
 
@@ -37,9 +52,29 @@ class PortfoliosController < ApplicationController
     params.require(:portfolio).permit(:title, :description)
   end
 
-  def investment_price(investment)
+  def investment_price(symbols)
     query = BasicYahooFinance::Query.new
-    data = query.quotes(investment.symbol)
-    @info = data[investment.symbol]
+    data = query.quotes(symbols)
+    @value = 0
+    @info = data
+    @portfolio.investments.each do |investment|
+      investment.bookmarks.each do |bookmark|
+        @value += @info[investment.symbol]["regularMarketPrice"] * bookmark.quantity
+      end
+    end
+    @value
   end
+
+  def portfolio_symbols
+    @symbols = []
+    @portfolio.investments.each do |investment|
+      @symbols.push(investment.symbol) unless @symbols.include?(investment.symbol)
+    end
+    @symbols
+  end
+
+  def set_portfolio
+    @portfolio = Portfolio.find(params[:id])
+  end
+
 end

@@ -5,14 +5,16 @@
     </div>
     <div class="col">
       <h1> <%= @portfolio.title %> </h1>
+
     </div>
     <div class="col">
       <h2>. . .<h2>
     </div>
   </div>
-  <div class="row">
-    <div class="col text-center">
-      <p>Total value = <%= @portfolio_value.round(2) %></p>
+  <div class="row logo-height full-img">
+    <div class="col text-center align-self-center">
+      <h5>Total value</h5>
+      <%= @portfolio_value.round(2) %>
     </div>
   </div>
   <div class="row">
@@ -47,4 +49,10 @@
         </div>
       </div>
     <% end%>
+      <%# </div> %>
+    <%= link_to 'Edit Portfolio', edit_portfolio_path, class: "text-warning" %>
+    <%= link_to "Delete Portfolio", portfolio_path(@portfolio), method: :delete, data:{ confirm: "Are you sure?" } %>
  </div>
+
+<p><%= @portfolio_symbols %></p>
+<p><%= @temp %></p>
