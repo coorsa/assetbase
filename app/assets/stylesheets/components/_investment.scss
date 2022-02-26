@@ -21,6 +21,97 @@
 );
 }
 
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  max-width: 320px;
+  width: 320px;
+}
+
+.asset-wrapper h1 {
+  color: white;
+  font-size: 1.6rem;
+  min-width: 300px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.info-wrapper {
+  margin-top: 16px;
+  text-align: center;
+}
+
+
+.asset-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 24px;
+  border-radius: 12px;
+  background-image: linear-gradient(
+    0deg,
+    hsl(269deg, 53%, 42%) 0%,
+    hsl(269deg, 53%, 40%) 4%,
+    hsl(269deg, 53%, 38%) 9%,
+    hsl(269deg, 53%, 35%) 16%,
+    hsl(269deg, 53%, 33%) 24%,
+    hsl(269deg, 53%, 30%) 33%,
+    hsl(269deg, 53%, 28%) 44%,
+    hsl(269deg, 52%, 25%) 57%,
+    hsl(269deg, 52%, 23%) 74%,
+    hsl(269deg, 52%, 21%) 100%
+  );
+}
+
+.info-1{
+  display: flex;
+  gap: 8px;
+}
+
+body {
+  background-color: $dark-purple;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+// PARAGRAPH STYLING//////////
+.wrapper  p {
+  color: white;
+}
+
+.new-asset-wrapper > p {
+  text-align: center;
+  color: #FFFFFF;
+}
+/////////////////////////////
+
+// PADDING FOR LOGOS////////
+h1 > a >  img {
+  max-height: 35px;
+  border-radius: 8px;
+  background: white;
+  padding: 6px;
+}
+
+
+h1 > img {
+  max-height: 35px;
+  border-radius: 8px;
+  background: white;
+  padding: 6px;
+}
+///////////////////////
+
+// BUTTON STYLING ///////
 .new-asset-wrapper > p > .btn {
   background-image: linear-gradient(
   90deg,
@@ -37,25 +128,4 @@
   );
   border: none;
 }
-
-.new-asset-wrapper > p {
-  text-align: center;
-  color: #FFFFFF;
-}
-
-.text-center > .title-wrapper > img {
-  max-height: 40px;
-  border-radius: 8px;
-  // align-self: center;
-}
-
-.title-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  max-height: 40px;
-}
-
-.info-wrapper {
-  margin-top: 16px;
-}
+//////////////////////////////

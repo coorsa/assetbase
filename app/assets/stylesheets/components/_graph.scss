@@ -1,30 +1,29 @@
-.graph {
-  display: flex;
-  justify-content: center;
+#chart-1 {
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 8px;
+  max-width: 390px;
+  padding: 8px;
 }
-
 
 .text-center > .btn {
   border-radius: 8px;
-
 }
-
 
 .text-center > .btn {
   background-image: linear-gradient(
   90deg,
-  hsl(276deg, 98%, 74%) 0%,
-  hsl(274deg, 92%, 71%) 3%,
-  hsl(272deg, 87%, 69%) 9%,
-  hsl(270deg, 82%, 66%) 19%,
-  hsl(268deg, 78%, 63%) 38%,
-  hsl(266deg, 75%, 61%) 63%,
-  hsl(263deg, 72%, 58%) 79%,
-  hsl(261deg, 70%, 56%) 89%,
-  hsl(258deg, 68%, 53%) 95%,
-  hsl(254deg, 66%, 51%) 100%
+  hsl(244deg, 90%, 69%) 0%,
+  hsl(255deg, 88%, 68%) 22%,
+  hsl(266deg, 85%, 68%) 50%,
+  hsl(277deg, 83%, 67%) 69%,
+  hsl(288deg, 81%, 67%) 81%,
+  hsl(299deg, 79%, 66%) 88%,
+  hsl(310deg, 77%, 66%) 93%,
+  hsl(320deg, 75%, 65%) 96%,
+  hsl(331deg, 74%, 64%) 98%,
+  hsl(342deg, 72%, 64%) 100%
   );
   border: none;
 }

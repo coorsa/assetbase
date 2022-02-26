@@ -14,7 +14,7 @@ class InvestmentsController < ApplicationController
   def show
     @investment = Investment.find(params[:id])
     investment_price
-    if @investment.category == "Crypto"
+    if @investment.category == "crypto"
       historical_crypto
     elsif @investment.category == "share"
       historical_stocks
@@ -69,7 +69,7 @@ class InvestmentsController < ApplicationController
     if @info["displayName"].present?
       @clearbit = Clearbit::NameDomain.find(name: @info["displayName"])
     else
-     @clearbit = Clearbit::NameDomain.find(name: @investment.name)
+      @clearbit = Clearbit::NameDomain.find(name: @investment.name)
     end
   end
 end
