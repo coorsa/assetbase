@@ -1,6 +1,20 @@
 class BookmarksController < ApplicationController
   before_action :set_investment, only: [:new, :create]
-  before_action :set_portfolio, only: [:show, :edit, :update]
+  before_action :set_portfolio, only: [:index, :show, :edit, :update]
+
+
+  def index
+    @bookmarks = policy_scope(Bookmark).order(created_at: :desc)
+    @query = params[:query]
+    # raise
+    # # match_portfolio_and_bookmark
+    if @query.present?
+      # @query.first.to_i
+      @bookmarks = Bookmark.where(investment_id: @query)
+    else
+      @bookmarks = Bookmark.all
+    end
+  end
 
   def show
     @bookmark = Bookmark.find(params[:id])
@@ -49,5 +63,9 @@ class BookmarksController < ApplicationController
 
   def set_portfolio
     @portfolio = Portfolio.find(params[:portfolio_id])
+  end
+
+  def match_portfolio_and_bookmark
+    @portfolio = @bookmark.portfolio_id
   end
 end
