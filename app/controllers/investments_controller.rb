@@ -66,7 +66,7 @@ class InvestmentsController < ApplicationController
 
   def company_info
     Clearbit.key = ENV['CLEARBIT_KEY']
-    if @info["displayName"].present?
+    if @info && @info["displayName"].present?
       @clearbit = Clearbit::NameDomain.find(name: @info["displayName"])
     else
       @clearbit = Clearbit::NameDomain.find(name: @investment.name)

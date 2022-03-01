@@ -1,0 +1,27 @@
+<div class="container">
+  <% @bookmarks.each do |bookmark| %>
+    <div class="row mt-3">
+      <div class="col">
+        <h6>Date</h6>
+        <%= bookmark.date %>
+      </div>
+      <div class="col">
+        <h6>Quantity</h6>
+        <%= bookmark.quantity %>
+      </div>
+      <div class="col">
+        <h6>Transaction Price</h6>
+        <%= bookmark.transaction_price %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-11">
+        <h6>Comment</h6>
+        <%= bookmark.comment %>
+      </div>
+      <div class="col-1">
+        <i class="fa fa-pen"></i>
+      </div>
+    </div>
+  <% end %>
+</div>

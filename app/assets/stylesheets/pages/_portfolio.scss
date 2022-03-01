@@ -1,49 +1,42 @@
-.card_container {
-  background: linear-gradient(to bottom, #30194D, transparent );
+.investment-container {
+  background: linear-gradient(to bottom, $purple, transparent );
   border-radius: 24px;
   margin: 0px 8px;
   width: auto;
 }
 
-.card_container h3 {
-  font-family: Epilogue;
+.investment-container h3 {
+  font-family: $body-font;
   font-weight: 500;
   font-size: 24px;
-  color: white;
+  color: $white;
   margin-top: 16px;
 }
 
-.col-3 {
-  font-family: Epilogue;
-  color: white;
-  background-color: transparent;
-}
 
-.col-3 a {
+.investment-symbol {
   font-weight: 400;
   font-size: 18px;
   text-decoration: none;
-  color: white;
+  color: $white;
 }
 
-.col-3 p {
+.investment-name {
   font-weight: 100;
   font-size: 12px;
 }
 
-.text-right > i {
+.pen-symbol {
   padding-right: 16px;
   margin-top: 20px;
 }
-.fa {
-  color: white;
+
+.plus-symbol {
+  color: $white;
   margin-top: 4px;
   padding-left: 16px;
 }
 
-h1, h2, h5 {
-  color: white;
-}
 
 .full-img {
     background-image: image-url("logo.png");
