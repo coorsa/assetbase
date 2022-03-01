@@ -20,15 +20,22 @@
       </div>
     <% end %>
 
-    <% if @investment.category == 'share' && @info["regularMarketChangePercent"].present? %>
+    <% if @investment.category  && @info && @info["regularMarketChangePercent"].present? %>
       <div>
-        <p><strong>Market change:</strong> <%= @info["regularMarketChangePercent"].round(2)%>%</p>
+        <% if @info["regularMarketChangePercent"].positive?%>
+          <p><strong>Market change:</strong> <span style="color:#34CB41"><%= @info["regularMarketChangePercent"].round(2)%>%</span></p>
+        <% elsif @info["regularMarketChangePercent"].negative? %>
+          <p><strong>Market change:</strong> <span style="color:#DC001B"><%= @info["regularMarketChangePercent"].round(2)%>%</span></p>
+        <% else %>
+          <p><strong>Market change:</strong> <%= @info["regularMarketChangePercent"].round(2)%>%</p>
+
+        <% end%>
       </div>
     <% end %>
 
-    <% if @investment.category == 'share' && @info["dividendDate"].present?  %>
+    <% if @investment.category == 'share' && @info && @info["dividendDate"].present?  %>
       <div>
-        <p><strong>Dividend date:</strong> <%= Time.at(@info["dividendDate"]).to_date %></p>
+        <p><strong>Dividend date:</strong><%= Time.at(@info["dividendDate"]).to_date %></p>
       </div>
     <% end %>
   </div>
@@ -38,9 +45,9 @@
     <%# <div class="graph"> %>
       <% if @investment.category == "crypto" %>
         <%= render "cryptochart" %>
-      <% elsif @investment.category == "share" && @info["regularMarketPrice"].present? == true  %>
+      <% elsif @investment.category == "share" && @info && @info["regularMarketPrice"].present? == true  %>
         <%= render "stockchart" %>
-      <% elsif @investment.category = "share" && @info["regularMarketPrice"].present? == false %>
+      <% elsif @investment.category = "share" && @info && @info["regularMarketPrice"].present? == false %>
         <%= render "basicstockchart" %>
       <% else %>
           <p class="no-chart"> Chart not available</p>
