@@ -20,7 +20,7 @@
         <%= bookmark.comment %>
       </div>
       <div class="col-1">
-        <i class="fa fa-pen"></i>
+        <%= link_to "", edit_bookmark_path(bookmark), class: "fa fa-pen" %>
       </div>
     </div>
   <% end %>
