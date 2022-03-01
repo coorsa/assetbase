@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :set_investment, only: [:new, :create]
-  before_action :set_portfolio, only: [:index, :show, :edit, :update]
+  before_action :set_portfolio, only: [:index, :show]
 
   def index
     @bookmarks = policy_scope(Bookmark).order(created_at: :desc)
