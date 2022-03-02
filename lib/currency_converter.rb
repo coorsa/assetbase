@@ -1,11 +1,9 @@
 require 'eu_central_bank'
 class Convert
 
-  def currency
+  def currency(quantity, currency_in, currency_out)
     bank = EuCentralBank.new
     Money.default_bank = bank
-    money1 = Money.new(100)
-    money1.bank # bank
 
     # cached location
     cache = "./exchange_rates.xml"
@@ -21,7 +19,7 @@ class Convert
       bank.update_rates(cache)
     end
 
-    # exchange 100 CAD to USD as usual
-    bank.exchange_with(Money.new(100, "EUR"), "USD") # Money.new(80, "USD"
+    # exchange 100 currency#A to currency#B as usual
+    bank.exchange_with(Money.new(quantity, currency_in), currency_out)
   end
 end
