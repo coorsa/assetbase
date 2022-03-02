@@ -4,26 +4,8 @@ class Convert
   def currency
     bank = EuCentralBank.new
     Money.default_bank = bank
-    money1 = Money.new(10)
+    money1 = Money.new(100)
     money1.bank # bank
-
-    # call this before calculating exchange rates
-    # this will download the rates from ECB
-    bank.update_rates
-
-    # exchange 100 CAD to USD
-    # API is the same as the money gem
-    bank.exchange(100, "CAD", "USD") # Money.new(80, "USD")
-    Money.us_dollar(100).exchange_to("CAD")  # Money.new(124, "CAD")
-
-    # using the new exchange_with method
-    bank.exchange_with(Money.new(100, "CAD"), "USD")
-
-
-    # For performance reasons, you may prefer to read from a file instead.
-    # Furthermore, ECB publishes their rates daily.
-    # It makes sense to save the rates in a file to read from.
-    # It also adds an updated_at field so that you can manage the update.
 
     # cached location
     cache = "./exchange_rates.xml"
@@ -40,6 +22,6 @@ class Convert
     end
 
     # exchange 100 CAD to USD as usual
-    bank.exchange_with(Money.new(200, "CAD"), "USD") # Money.new(80, "USD"
+    bank.exchange_with(Money.new(100, "EUR"), "USD") # Money.new(80, "USD"
   end
 end
