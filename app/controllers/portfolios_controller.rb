@@ -24,9 +24,9 @@ class PortfoliosController < ApplicationController
 
   def show
     authorize @portfolio
-    @convert = Convert.new
-    @portfolio_value = @convert.currency(investment_price(portfolio_symbols), "USD", "CAD")
-
+    value = investment_price(portfolio_symbols)
+    api_curr = "USB"
+    @portfolio_value = Convert.new.currency(value, api_curr, current_user.currency)
   end
 
   def destroy
