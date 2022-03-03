@@ -24,7 +24,7 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
-    # @bookmark.user = current_user
+    @bookmark.user = current_user
     @bookmark.investment = @investment
     authorize @bookmark
 
