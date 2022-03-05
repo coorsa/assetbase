@@ -1,6 +1,7 @@
 class InvestmentsController < ApplicationController
   def index
     @investments = policy_scope(Investment).order(created_at: :desc)
+    @investment_category = @investments.group_by(&:category).keys.to_a
 
     @query = params[:query]
     if @query.present?
