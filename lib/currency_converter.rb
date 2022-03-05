@@ -1,6 +1,6 @@
 require 'eu_central_bank'
 class Convert
-  def currency(quantity, currency_in, currency_out)
+  def self.currency(quantity, currency_in, currency_out)
     # We set our bank
     bank = EuCentralBank.new
     Money.default_bank = bank
