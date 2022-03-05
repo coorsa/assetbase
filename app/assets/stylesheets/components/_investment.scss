@@ -108,3 +108,24 @@ body {
   border: none;
 }
 //////////////////////////////
+
+.investment-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+}
+
+.investment-card {
+  display: block;
+  height: 64px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.small-text {
+  font-size: x-small;
+}
