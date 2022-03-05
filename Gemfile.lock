@@ -67,6 +67,7 @@ GEM
       humanize (>= 1.7.0)
     autoprefixer-rails (10.2.5.0)
       execjs (< 2.8.0)
+    aws_cf_signer (0.1.3)
     basic_yahoo_finance (0.2.0)
     bcrypt (3.1.16)
     better_errors (2.9.1)
@@ -93,6 +94,9 @@ GEM
     childprocess (4.1.0)
     clearbit (0.3.3)
       nestful (~> 1.1.0)
+    cloudinary (1.16.1)
+      aws_cf_signer
+      rest-client
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
@@ -106,6 +110,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -125,6 +131,9 @@ GEM
       sassc (>= 1.11)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    http-accept (1.7.0)
+    http-cookie (1.0.4)
+      domain_name (~> 0.5)
     httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -156,6 +165,7 @@ GEM
     msgpack (1.4.5)
     multi_xml (0.6.0)
     nestful (1.1.4)
+    netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
@@ -222,6 +232,11 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rexml (3.2.5)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -258,6 +273,9 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -298,6 +316,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   chartkick
   clearbit
+  cloudinary (~> 1.16.0)
   cryptocompare
   devise
   dotenv-rails

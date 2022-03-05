@@ -47,6 +47,13 @@ class BookmarksController < ApplicationController
     redirect_to portfolio_path(@bookmark.portfolio), notice: "investment updated 🎉"
   end
 
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    authorize @bookmark
+    redirect_to portfolio_path(@bookmark.portfolio), notice: "investment deleted 🚮"
+  end
+
   private
 
   def bookmark_params
