@@ -10,11 +10,13 @@
 
     <div class="info-wrapper">
       <div class="info-1">
+      <% if @investment.category != "NFT"%>
         <p><strong>Symbol:</strong> <%= @investment.symbol %></p>
         <p><strong>Category:</strong> <%= @investment.category.capitalize %></p>
+      <% end %>
       </div>
 
-    <% if @info.present? %>
+    <% if @info.present? && @investment.category != "NFT" %>
       <div>
         <p><strong>Current price (<%= @info["currency"]%>):</strong> <%= @info["regularMarketPrice"] %></p>
       </div>
@@ -25,7 +27,7 @@
         <% if @info["regularMarketChangePercent"].positive?%>
           <p><strong>Market change:</strong> <span style="color:#34CB41"><%= @info["regularMarketChangePercent"].round(2)%>%</span></p>
         <% elsif @info["regularMarketChangePercent"].negative? %>
-          <p><strong>Market change:</strong> <span style="color:#DC001B"><%= @info["regularMarketChangePercent"].round(2)%>%</span></p>
+          <p><strong>Market change:</strong> <span style="color:#BA1F33;"><%= @info["regularMarketChangePercent"].round(2)%>%</span></p>
         <% else %>
           <p><strong>Market change:</strong> <%= @info["regularMarketChangePercent"].round(2)%>%</p>
 
@@ -35,8 +37,12 @@
 
     <% if @investment.category == 'share' && @info && @info["dividendDate"].present?  %>
       <div>
-        <p><strong>Dividend date:</strong><%= Time.at(@info["dividendDate"]).to_date %></p>
+        <p><strong>Dividend date: </strong><%= Time.at(@info["dividendDate"]).to_date %></p>
       </div>
+    <% end %>
+
+    <%if @investment.category == "NFT" %>
+      <%= render "nft" %>
     <% end %>
   </div>
 
@@ -58,6 +64,6 @@
 
 
 <div class="text-center" style="margin-top: 16px">
-  <%= link_to "Back to assets page", investments_path, class: "btn btn-primary" %>
-  <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn btn-primary" %>
+  <%= link_to "Back to assets page", investments_path, class: "back-btn" %>
+  <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn btn-primary add-new-asset-btn" %>
 </div>

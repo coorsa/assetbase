@@ -20,6 +20,8 @@ class InvestmentsController < ApplicationController
     elsif @investment.category == "share"
       historical_stocks
       company_info
+    elsif @investment.category == "NFT"
+      nft_info
     end
     authorize @investment
   end
@@ -72,5 +74,25 @@ class InvestmentsController < ApplicationController
     else
       @clearbit = Clearbit::NameDomain.find(name: @investment.name)
     end
+  end
+
+  def nft_info
+    chars = @investment.name.chars
+    hyph_name = chars.map { |e| e == " " ? '-' : e }.join
+    url = "https://opensea.io/collection/#{hyph_name}"
+    # html_content = URI.open(url).read
+    html_content = HTTParty.get(url).body
+    doc = Nokogiri::HTML(html_content)
+
+    css = ".Overflowreact__OverflowContainer-sc-7qr9y8-0"
+    array = []
+    doc.search(css).first(5).each do |element|
+      array << element.text.strip
+    end
+    ethereum_price = Cryptocompare::Price.find('ETH', current_user.currency, { api_key: ENV['CRYPTOCOMPARE_KEY'] })
+
+    @nft_info = { items: array[0], owners: array[1], floor_price: array[2],
+                  floor_price_fiat: array[2].to_f * ethereum_price["ETH"][current_user.currency],
+                  volume_traded: array[3], name: array[4] }
   end
 end

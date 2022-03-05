@@ -1,0 +1,7 @@
+
+  <p><strong>Items:</strong> <%= @nft_info[:items] %></p>
+  <p><strong>Owners:</strong> <%= @nft_info[:owners] %></p>
+  <p><strong>Floor price</strong>  (<i class="fab fa-ethereum"></i>)<strong>:</strong> <%= @nft_info[:floor_price] %></p>
+  <p><strong>Floor price</strong> (<%= current_user.currency %>) <strong>:</strong> <%= @nft_info[:floor_price_fiat].round(2)%></p>
+
+  <p><strong>Volume traded:</strong> <%= @nft_info[:volume_traded] %></p>
