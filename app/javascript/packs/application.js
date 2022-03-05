@@ -31,7 +31,7 @@ import "chartkick/chart.js";
 //= require flatpickr
 
 const initFlatpickr = () => {
-  flatpickr("#bookmark_date", {
+  flatpickr(".flatpickr", {
     altInput: true,
     disableMobile: true
   })
