@@ -7,6 +7,8 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import flatpickr from "flatpickr";
+import "flatpickr/dist/themes/dark.css"
 
 
 Rails.start()
@@ -22,18 +24,22 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 import "chartkick/chart.js";
-import flatpickr from "flatpickr";
-import "flatpickr/dist/themes/dark.css"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-flatpickr("#bookmark_date", {
-  altInput: true,
-  disableMobile: true
-})
+//= require flatpickr
+
+const initFlatpickr = () => {
+  flatpickr(".flatpickr", {
+    altInput: true,
+    disableMobile: true
+  })
+};
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initFlatpickr();
 });
