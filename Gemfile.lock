@@ -120,6 +120,7 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
     ffi (1.15.5)
+    flatpickr (4.6.6.0)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
     globalid (1.0.0)
@@ -301,6 +302,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   eu_central_bank
+  flatpickr
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)

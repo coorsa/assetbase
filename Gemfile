@@ -29,7 +29,6 @@ gem 'pg_search', '~> 2.3.0'
 
 # Use Pundit for Authorization
 gem 'pundit'
-
 gem 'money'
 gem 'eu_central_bank'
 
@@ -48,6 +47,8 @@ gem 'clearbit'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'flatpickr'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
