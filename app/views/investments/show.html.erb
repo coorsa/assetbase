@@ -10,11 +10,13 @@
 
     <div class="info-wrapper">
       <div class="info-1">
+      <% if @investment.category != "NFT"%>
         <p><strong>Symbol:</strong> <%= @investment.symbol %></p>
         <p><strong>Category:</strong> <%= @investment.category.capitalize %></p>
+      <% end %>
       </div>
 
-    <% if @info.present? %>
+    <% if @info.present? && @investment.category != "NFT" %>
       <div>
         <p><strong>Current price (<%= @info["currency"]%>):</strong> <%= @info["regularMarketPrice"] %></p>
       </div>
