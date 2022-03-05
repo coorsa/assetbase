@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :portfolios, only: [:index, :new, :create, :show, :destroy, :edit, :update ] do
-    resources :bookmarks, only: [:index, :destroy ]
+    resources :bookmarks, only: [:index]
   end
 
-  resources :bookmarks, only: [:edit, :update]
+  resources :bookmarks, only: [:edit, :update, :destroy]
 end

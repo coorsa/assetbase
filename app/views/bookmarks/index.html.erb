@@ -21,7 +21,19 @@
       </div>
       <div class="col-1">
         <%= link_to "", edit_bookmark_path(bookmark), class: "fa fa-pen" %>
+        <%= link_to "",
+            bookmark_path(bookmark),
+            class: "fa fa-trash",
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
       </div>
+      <%# <div class="col-1">
+        <%= link_to "",
+                    bookmark_path(bookmark),
+                    class: "fa fa-trash",
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+      <%# </div> %>
     </div>
   <% end %>
 </div>
