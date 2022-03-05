@@ -60,10 +60,8 @@ class PortfoliosController < ApplicationController
     data = query.quotes(symbols)
     @value = 0
     @info = data
-    @portfolio.investments.each do |investment|
-      investment.bookmarks.each do |bookmark|
-        @value += @info[investment.symbol]["regularMarketPrice"] * bookmark.quantity
-      end
+    @portfolio.bookmarks.each do |bookmark|
+      @value += @info[bookmark.investment.symbol]["regularMarketPrice"] * bookmark.quantity
     end
     @value
   end
