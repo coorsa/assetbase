@@ -111,6 +111,9 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
+    eu_central_bank (1.7.0)
+      money (~> 6.13, >= 6.13.6)
+      nokogiri (~> 1.9)
     execjs (2.7.0)
     faraday (2.2.0)
       faraday-net_http (~> 2.0)
@@ -147,6 +150,8 @@ GEM
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     minitest (5.15.0)
+    money (6.16.0)
+      i18n (>= 0.6.4, <= 2)
     msgpack (1.4.5)
     multi_xml (0.6.0)
     nestful (1.1.4)
@@ -295,9 +300,11 @@ DEPENDENCIES
   cryptocompare
   devise
   dotenv-rails
+  eu_central_bank
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  money
   pg (~> 1.1)
   pg_search (~> 2.3.0)
   pry-byebug
@@ -321,4 +328,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.4
+   2.3.6
