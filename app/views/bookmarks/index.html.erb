@@ -21,7 +21,20 @@
       </div>
       <div class="col-1">
         <%= link_to "", edit_bookmark_path(bookmark), class: "fa fa-pen" %>
+        <%= link_to "",
+            bookmark_path(bookmark),
+            class: "fa fa-trash",
+            method: :delete,
+            data: { confirm: "Delete transaction?" } %>
       </div>
+      <%# <div class="col-1">
+        <%= link_to "",
+                    bookmark_path(bookmark),
+                    class: "fa fa-trash",
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+      <%# </div> %>
     </div>
   <% end %>
+  <%= link_to 'Back', portfolio_path(@portfolio), class: 'btn btn-outline-warning btn-block' %>
 </div>
