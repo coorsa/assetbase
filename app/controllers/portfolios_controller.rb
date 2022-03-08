@@ -80,5 +80,4 @@ class PortfoliosController < ApplicationController
   def set_portfolio
     @portfolio = Portfolio.find(params[:id])
   end
-
 end
