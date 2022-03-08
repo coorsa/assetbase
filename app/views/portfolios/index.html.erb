@@ -1,7 +1,27 @@
-<h1>Portfolio index</h1>
-<% current_user.portfolios.each do |portfolio| %>
-  <h2><%= link_to portfolio.title, portfolio_path(portfolio) %></h2>
-  <%= link_to 'Edit Portfolio', edit_portfolio_path(portfolio), class: "text-warning" %>
-  <%= link_to "Delete Portfolio", portfolio_path(portfolio), method: :delete, data:{ confirm: "Are you sure?" } %>
-<% end %>
-<%= link_to "New list", new_portfolio_path %>
+<div class="container">
+  <% if @portfolios.empty? %>
+    <p class="mt-5 ml-1 text-center">You don't have any portfolios yet. If you want to make gainzzz get started by creating a new portfolio!</p>
+  <% else %>
+    <h2 class="mt-5 ml-1">Your portfolios</h2>
+      <% current_user.portfolios.each do |portfolio| %>
+        <div class="investment-container mb-4 py-1">
+          <div class="row">
+            <div class="col-10">
+              <h3 class="ml-1"><%= portfolio.title %></h3>
+            </div>
+            <div class="col-2 align-self-center">
+              <%= link_to "", portfolio_path(portfolio), class: "fa fa-angle-right" %>
+            </div>
+          </div>
+          <div class="row small-text ml-1">
+            <%= portfolio.description %>
+          </div>
+        </div>
+      <% end %>
+  <% end %>
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to "Create Portfolio", new_portfolio_path, class: "back-btn" %>
+    </div>
+  </div>
+</div>
