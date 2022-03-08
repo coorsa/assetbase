@@ -18,7 +18,7 @@ class InvestmentsController < ApplicationController
     if @investment.category == "crypto"
       historical_crypto
     elsif @investment.category == "share"
-        historical_stocks
+      historical_stocks
       company_info
     elsif @investment.category == "NFT"
       nft_info
@@ -55,7 +55,7 @@ class InvestmentsController < ApplicationController
   end
 
   def historical_crypto
-    data = Cryptocompare::HistoDay.find(@info["fromCurrency"], 'USD')["Data"]
+    data = Cryptocompare::HistoDay.find(@info["fromCurrency"], "USD")["Data"]
     @array = []
     data.each do |item|
       @array << [Time.at(item["time"]).to_date.to_s, item["close"]]
@@ -65,7 +65,7 @@ class InvestmentsController < ApplicationController
   def historical_stocks
     if @investment.symbol.present?
       timeseries = Alphavantage::Timeseries.new symbol: @investment.symbol, key: ENV['ALPHAVANTAGE_KEY']
-      @time_array = timeseries.close("desc").first(50)
+        @time_array = timeseries.close("desc").first(50)
     end
   end
 
