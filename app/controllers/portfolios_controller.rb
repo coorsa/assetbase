@@ -25,8 +25,9 @@ class PortfoliosController < ApplicationController
   def show
     authorize @portfolio
     value = investment_price(portfolio_symbols)
+    # This is a place holder for the currency that the API gives you, if different just change it
     api_curr = "USD"
-    @portfolio_value = Convert.new.currency(value, api_curr, current_user.currency)
+    @portfolio_value = Convert.currency(value, api_curr, current_user.currency)
   end
 
   def destroy
@@ -60,9 +61,9 @@ class PortfoliosController < ApplicationController
     data = query.quotes(symbols)
     @value = 0
     @info = data
-    @portfolio.investments.each do |investment|
-      investment.bookmarks.each do |bookmark|
-        @value += @info[investment.symbol]["regularMarketPrice"] * bookmark.quantity
+    @portfolio.bookmarks.each do |bookmark|
+      if @info[bookmark.investment.symbol].present?
+        @value += @info[bookmark.investment.symbol]["regularMarketPrice"] * bookmark.quantity
       end
     end
     @value

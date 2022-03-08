@@ -18,8 +18,10 @@ class InvestmentsController < ApplicationController
     if @investment.category == "crypto"
       historical_crypto
     elsif @investment.category == "share"
-      historical_stocks
+        historical_stocks
       company_info
+    elsif @investment.category == "NFT"
+      nft_info
     end
     authorize @investment
   end
@@ -61,8 +63,10 @@ class InvestmentsController < ApplicationController
   end
 
   def historical_stocks
-    timeseries = Alphavantage::Timeseries.new symbol: @investment.symbol, key: ENV['ALPHAVANTAGE_KEY']
-    @time_array = timeseries.close("desc").first(50)
+    if @investment.symbol.present?
+      timeseries = Alphavantage::Timeseries.new symbol: @investment.symbol, key: ENV['ALPHAVANTAGE_KEY']
+      @time_array = timeseries.close("desc").first(50)
+    end
   end
 
   def company_info
@@ -72,5 +76,24 @@ class InvestmentsController < ApplicationController
     else
       @clearbit = Clearbit::NameDomain.find(name: @investment.name)
     end
+  end
+
+  def nft_info
+    chars = @investment.symbol.chars
+    hyph_name = chars.map { |e| e == " " ? '-' : e.downcase }.join
+    url = "https://opensea.io/collection/#{hyph_name}"
+    html_content = HTTParty.get(url).body
+    doc = Nokogiri::HTML(html_content)
+    css = ".Overflowreact__OverflowContainer-sc-7qr9y8-0"
+    array = []
+
+    doc.search(css).first(5).each do |element|
+      array << element.text.strip
+    end
+
+    ethereum_price = Cryptocompare::Price.find('ETH', current_user.currency, { api_key: ENV['CRYPTOCOMPARE_KEY'] })
+    @nft_info = { items: array[0], owners: array[1], floor_price: array[2],
+                  floor_price_fiat: array[2].to_f * ethereum_price["ETH"][current_user.currency],
+                  volume_traded: array[3], name: array[4], hyph_name: hyph_name }
   end
 end

@@ -20,6 +20,15 @@ polkadot = Investment.create!(name: "Polkadot", category: "crypto", symbol: "DOT
 pancakeswap = Investment.create!(name: "PancakeSwap", category: "crypto", symbol: "CAKE-USD")
 puts "created crypto"
 
+puts 'creating NFTs'
+Investment.create!(name: "Mutant Ape Yacht Club", category: "NFT", symbol: "Mutant Ape Yacht Club")
+Investment.create!(name: "CryptoPunks", category: "NFT", symbol: "CryptoPunks")
+Investment.create!(name: "Bored Ape Yacht Club", category: "NFT", symbol: "BoredApeYachtClub")
+Investment.create!(name: "Doodles", category: "NFT", symbol: "Doodles")
+puts 'created NFTs'
+
+
+
 puts "creating shares"
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'stocks_list.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')

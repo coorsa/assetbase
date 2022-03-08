@@ -7,8 +7,8 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import flatpickr from "flatpickr";
-import "flatpickr/dist/themes/dark.css"
+// import flatpickr from "flatpickr";
+// import "flatpickr/dist/themes/dark.css"
 
 
 Rails.start()
@@ -37,9 +37,11 @@ const initFlatpickr = () => {
   })
 };
 
+import { giphy } from '../components/gif';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  giphy();
   initFlatpickr();
 });

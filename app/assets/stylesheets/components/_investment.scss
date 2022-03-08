@@ -129,3 +129,23 @@ body {
 .small-text {
   font-size: x-small;
 }
+
+// BACK BUTTON
+.back-btn{
+  background-color: #211234;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 0.55rem 0.8rem;
+  font-weight: 400px;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.back-btn:hover{
+  color: inherit;
+  text-decoration: inherit;
+  opacity: 0.8;
+}
+
+//////////////////////////////
