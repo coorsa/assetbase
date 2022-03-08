@@ -62,7 +62,9 @@ class PortfoliosController < ApplicationController
     @value = 0
     @info = data
     @portfolio.bookmarks.each do |bookmark|
-      @value += @info[bookmark.investment.symbol]["regularMarketPrice"] * bookmark.quantity
+      if @info[bookmark.investment.symbol].present?
+        @value += @info[bookmark.investment.symbol]["regularMarketPrice"] * bookmark.quantity
+      end
     end
     @value
   end
