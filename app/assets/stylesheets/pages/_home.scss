@@ -3,37 +3,6 @@
   margin: 0;
 }
 
-#sign-in-btn {
-  // Position
-  position: absolute;
-  top: 50px;
-  right: 30px;
-
-  // Size
-  width: 81.41px;
-
-  // Text
-  color: $white;
-  font-style: normal;
-
-  // Looks
-  border-radius: $border-radius;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  border-image: linear-gradient(
-      90deg,
-      hsl(244deg, 90%, 69%) 0%,
-      hsl(255deg, 88%, 68%) 22%,
-      hsl(266deg, 85%, 68%) 50%,
-      hsl(277deg, 83%, 67%) 69%,
-      hsl(288deg, 81%, 67%) 81%,
-      hsl(299deg, 79%, 66%) 88%,
-      hsl(310deg, 77%, 66%) 93%,
-      hsl(320deg, 75%, 65%) 96%,
-      hsl(331deg, 74%, 64%) 98%,
-      hsl(342deg, 72%, 64%) 100%
-    )
-    1;
-}
 
 #home-logo {
   width: 300px;
@@ -52,31 +21,23 @@
   padding: 30px;
   padding-bottom: 64px;
   padding-top: 0px;
+  .btn {
+    //size
+    width: 100%;
+    height: 46px;
+    // Text
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+  }
 }
 
-#sign-up-btn {
-  background-image: linear-gradient(
-    90deg,
-    #7269f7 0%,
-    #8966f5 22%,
-    #a468f3 50%,
-    #bb65f1 69%,
-    #d467ef 81%,
-    #eb64ed 88%,
-    #eb66d5 93%,
-    #e963bc 96%,
-    #e75fa1 98%,
-    #e56189 100%
-  );
-  border: none;
-  border-radius: $border-radius;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  width: 100%;
+#sign-in-btn {
+  // Position
+  position: absolute;
+  top: 50px;
+  right: 30px;
 
-  font-style: normal;
-  font-weight: bold;
-
-
-  height: 46px;
-  font-size: 24px;
+  // Size
+  width: 81.41px;
 }

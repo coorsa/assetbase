@@ -11,4 +11,31 @@ $white: white;
 $light-gray: #F4F4F4;
 $purple: #30194D;
 $dark-purple: #211134;
-$hotpink: hotpink
+$hotpink: hotpink;
+$primary-btn-color: linear-gradient(
+      90deg,
+      hsl(244deg, 90%, 69%) 0%,
+      hsl(255deg, 88%, 68%) 22%,
+      hsl(266deg, 85%, 68%) 50%,
+      hsl(277deg, 83%, 67%) 69%,
+      hsl(288deg, 81%, 67%) 81%,
+      hsl(299deg, 79%, 66%) 88%,
+      hsl(310deg, 77%, 66%) 93%,
+      hsl(320deg, 75%, 65%) 96%,
+      hsl(331deg, 74%, 64%) 98%,
+      hsl(342deg, 72%, 64%) 100%
+    );
+$hollow-btn-border-color: linear-gradient(
+      90deg,
+      hsl(244deg, 90%, 69%) 0%,
+      hsl(255deg, 88%, 68%) 22%,
+      hsl(266deg, 85%, 68%) 50%,
+      hsl(277deg, 83%, 67%) 69%,
+      hsl(288deg, 81%, 67%) 81%,
+      hsl(299deg, 79%, 66%) 88%,
+      hsl(310deg, 77%, 66%) 93%,
+      hsl(320deg, 75%, 65%) 96%,
+      hsl(331deg, 74%, 64%) 98%,
+      hsl(342deg, 72%, 64%) 100%
+    )
+    1;
