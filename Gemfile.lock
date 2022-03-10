@@ -98,6 +98,7 @@ GEM
       aws_cf_signer
       rest-client
     coderay (1.1.3)
+    concurrency (1.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     cryptocompare (0.17.0)
@@ -317,6 +318,7 @@ DEPENDENCIES
   chartkick
   clearbit
   cloudinary (~> 1.16.0)
+  concurrency
   cryptocompare
   devise
   dotenv-rails

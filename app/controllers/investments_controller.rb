@@ -65,7 +65,7 @@ class InvestmentsController < ApplicationController
   def historical_stocks
     if @investment.symbol.present?
       timeseries = Alphavantage::Timeseries.new symbol: @investment.symbol, key: ENV['ALPHAVANTAGE_KEY']
-        @time_array = timeseries.close("desc").first(50)
+      @time_array = timeseries.close("desc").first(50)
     end
   end
 

@@ -1,7 +1,6 @@
-
 <div class="title-wrapper">
   <h1>
-    <% if @info["displayName"].present? %>
+    <% if @info.present? && @info["displayName"].nil? == false %>
       <%= @info["displayName"] %>
     <% else %>
       <%= @investment.name %>

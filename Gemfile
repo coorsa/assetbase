@@ -43,6 +43,8 @@ gem 'cryptocompare'
 gem "chartkick"
 gem "alphavantagerb"
 gem 'clearbit'
+gem 'concurrency'
+# //////////////////////
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
