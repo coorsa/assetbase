@@ -1,28 +1,29 @@
 <div class="container pt-5">
-  <%= link_to "", root_path, class: "fa fa-arrow-left fa-xl" %>
-  <h3 class="text-center mt-4 mb-4">Sign up to Assetbase</h3>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-  <div class="row container w-100 form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { class: "custom-input", autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { class: "custom-input", autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { class: "custom-input", autocomplete: "new-password" } %>
-    <%= f.input :photo, as: :file %>
+  <div class="row justify-content-between align-items-center">
+    <%= link_to "", root_path, class: "fa fa-arrow-left fa-xl" %>
+    <%= render "devise/shared/links" %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+  <h3 class="text-center mt-5 mb-4">Sign up to Assetbase</h3>
 
-<%= render "devise/shared/links" %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <div class="row container w-100 form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { class: "custom-input", autocomplete: "email" }, wrapper_html: { class: 'w-100' }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { class: "custom-input", autocomplete: "new-password" }, wrapper_html: { class: 'w-100' } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { class: "custom-input", autocomplete: "new-password" }, wrapper_html: { class: 'w-100' } %>
+      <%= f.input :photo, as: :file, input_html: { class: "btn hollow-btn"} %>
+      <%= f.button :submit, "Sign up", class: "btn primary-btn w-100" %>
+    </div>
+  <% end %>
+
 </div>
