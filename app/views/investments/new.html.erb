@@ -6,7 +6,7 @@
           <%= f.input :name, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.input :category, class: 'form-control' %>
+          <%= f.input :category, as: :select, collection: ["share", "crypto", "NFT"], class: 'form-control' %>
         </div>
         <div class="form-group">
           <%= f.input :symbol, class: 'form-control' %>
