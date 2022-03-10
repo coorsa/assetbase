@@ -19,7 +19,7 @@
     <div class="form-group">
       <%= f.input :date, label: "Buy date", input_html: { class: "custom-input flatpickr", style: "background-color: transparent;"}, label_html: { class: "custom-label"} %>
     </div>
-    <div class="mt-3 row d-flex" style="justify-content: space-around">
+    <div class="mt-3 row justify-content-around">
       <%= f.button :submit, "Add", class: 'btn primary-btn col-5 text-center' %>
       <%= link_to 'Cancel', investment_path(@investment), class: 'btn hollow-btn col-5' %>
     </div>
