@@ -42,7 +42,7 @@ end
 puts "created shares"
 
 puts "creating user(s)"
-user_1 = User.create!(email: "rujyq@zetmail.com", password: "Frog123", currency: "USD")
+user_1 = User.create!(name: "Mickey Mouse", email: "rujyq@zetmail.com", password: "Frog123", currency: "USD")
 puts "created users"
 
 puts "creating portfolios"

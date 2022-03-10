@@ -18,7 +18,7 @@
 
     <% if @info.present? && @investment.category != "NFT" %>
       <div>
-        <p><strong>Current price (<%= @info["currency"]%>):</strong> <%= @info["regularMarketPrice"] %></p>
+        <p><strong>Current price (<%= current_user.currency%>):</strong> <%= Concurrency.convert(@info["regularMarketPrice"], @info["currency"], current_user.currency).round(2) %>  </p>
       </div>
     <% end %>
 
@@ -50,9 +50,9 @@
       <%= render "cryptochart" %>
     <% elsif @investment.category == "share" && @info && @info["regularMarketPrice"].present? == true %>
       <%= render "stockchart" %>
-    <% elsif @investment.category = "share" && @info && @info["regularMarketPrice"].present? == false %>
+    <% elsif @investment.category == "share" && @info && @info["regularMarketPrice"].present? == false %>
       <%= render "basicstockchart" %>
-    <% elsif @investment.category = "NFT" %>
+    <% elsif @investment.category == "NFT" %>
         <p class="no-chart" id="gif-button" data-name=<%= @nft_info[:hyph_name] %>> Chart not available <br> click to view NFT</p>
     <% else %>
         <p class="no-chart"> Chart not available</p>
@@ -62,8 +62,8 @@
 
 
 <div class="text-center" style="margin-top: 16px">
-  <%= link_to "Back to assets page", investments_path, class: "back-btn" %>
-  <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn btn-primary add-new-asset-btn" %>
+  <%= link_to "Back to assets page", investments_path, class: "btn hollow-btn" %>
+  <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn primary-btn" %>
 </div>
 
 <% if @clearbit.present?%>
