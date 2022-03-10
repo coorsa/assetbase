@@ -28,5 +28,14 @@ i {
 }
 
 #bookmark_comment {
-    height: 32px
+  height: 32px
+}
+
+.custom-input:focus {
+  outline-width: 0;
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid #FFFFFF;
+  outline: none;
+  background-color: transparent;
 }
