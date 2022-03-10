@@ -9,3 +9,33 @@ h6 {
 i {
   color: $white;
 }
+
+
+
+.custom-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  outline: none;
+  box-shadow: none;
+  line-height: 1;
+  color: white;
+  margin-bottom: 24px;
+}
+
+.custom-label {
+  font-weight: 500;
+}
+
+#bookmark_comment {
+  height: 32px
+}
+
+.custom-input:focus {
+  outline-width: 0;
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid #FFFFFF;
+  outline: none;
+  background-color: transparent;
+}
