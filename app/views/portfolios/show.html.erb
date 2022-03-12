@@ -35,7 +35,7 @@
             </div>
             <div class="col-4 align-self-center">
               <div class="row align-self-center justify-content-end">
-                <%= @currency %> <%= investment.bookmarks.where(portfolio_id: @portfolio).sum(:quantity) * 1 %>
+                <%= @currency %> <%= investment.bookmarks.where(portfolio_id: @portfolio).sum(:quantity) * 100 %>
                 <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "fa fa-angle-double-right align-self-center pb-1 pl-2" %>
               </div>
               <div class="row justify-content-center">
