@@ -27,7 +27,7 @@ class BookmarksController < ApplicationController
     # @bookmark.user = current_user
     @bookmark.investment = @investment
     authorize @bookmark
-
+    before_save
     if @bookmark.save
       redirect_to portfolio_path(@bookmark.portfolio), notice: "investment Added to your Portfolio 🎉"
     else
@@ -70,5 +70,13 @@ class BookmarksController < ApplicationController
 
   def match_portfolio_and_bookmark
     @portfolio = @bookmark.portfolio_id
+  end
+
+  def before_save
+    if @bookmark.transaction_type == "Sell"
+      @bookmark.quantity = -@bookmark.quantity
+    else
+      @bookmark.quantity
+    end
   end
 end
