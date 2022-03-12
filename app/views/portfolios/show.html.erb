@@ -32,13 +32,17 @@
         <div class="col-5 align-self-center">
           <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
         </div>
-        <div class="col-3 align-self-center text-right">
+        <div class="col-4">
+          <div class="row justify-content-end">
+            <%= @currency %> <%= investment.bookmarks.sum(:quantity) * investment.previous_price.round(2) %>
+          </div>
           <%# Show calculation of current asset price * quantity %>
-          <%= @currency %> <%= investment.bookmarks.sum(:quantity) * 100 %>
           <%# <text>$ 1,305.53</text> %>
-        </div>
-        <div class="col-1 text-right">
-          <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "pen-symbol fa fa-pen pr-0" %>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <%= link_to "Trade", new_investment_bookmark_path(investment_id: investment), class: "primary-btn btn-small" %>
+            </div>
+          </div>
         </div>
       <% else %>
       <% end %>
@@ -49,3 +53,6 @@
     <%= link_to 'Edit Portfolio', edit_portfolio_path, class: "btn hollow-btn" %>
   </div>
 </div>
+
+        <div class="col-1 text-right">
+        </div>
