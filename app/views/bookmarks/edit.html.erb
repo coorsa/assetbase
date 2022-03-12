@@ -19,8 +19,8 @@
       <%= f.input :date, label: "Transaction Date", input_html: { class: "custom-input flatpickr", style: "background-color: transparent; color: white" }  %>
     </div>
     <div class="mt-3 row d-flex" style="justify-content: space-around">
-      <%= f.button :submit, "Edit", class: 'btn primary-btn col-5 text-center' %>
       <%= link_to 'Cancel', portfolio_path(@bookmark.portfolio_id), class: 'btn hollow-btn col-5' %>
+      <%= f.button :submit, "Edit", class: 'btn primary-btn col-5 text-center' %>
     </div>
   <% end %>
 </div>

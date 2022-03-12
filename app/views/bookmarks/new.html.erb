@@ -20,8 +20,8 @@
       <%= f.input :date, label: "Transaction date", input_html: { class: "custom-input flatpickr", style: "background-color: transparent;"}, label_html: { class: "custom-label"} %>
     </div>
     <div class="mt-3 row justify-content-around">
-      <%= f.button :submit, "Add", class: 'btn primary-btn col-5 text-center' %>
       <%= link_to 'Cancel', investment_path(@investment), class: 'btn hollow-btn col-5' %>
+      <%= f.button :submit, "Add", class: 'btn primary-btn col-5 text-center' %>
     </div>
   <% end %>
   <%# <%= link_to 'Back to all assets', investments_path, class: 'btn btn-outline-warning btn-block' %>
