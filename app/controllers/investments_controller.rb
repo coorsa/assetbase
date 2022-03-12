@@ -15,7 +15,7 @@ class InvestmentsController < ApplicationController
   def show
     @investment = Investment.find(params[:id])
     currency_symbol
-    if @investment.category == "crypto"
+    if @investment.category == "Crypto"
       investment_price
       historical_crypto
     elsif @investment.category == "share"
@@ -54,11 +54,10 @@ class InvestmentsController < ApplicationController
     query = BasicYahooFinance::Query.new
     data = query.quotes(@investment.symbol)
     @info = data[@investment.symbol]
-
-    # if @info["regularMarketPrice"].nil? == false && @investment.previous_price != @info["regularMarketPrice"]
-    #   @investment.previous_price = @info["regularMarketPrice"]
-    #   @investment.save!
-    # end
+    if @info["regularMarketPrice"].nil? == false && @investment.previous_price != @info["regularMarketPrice"]
+      @investment.previous_price = @info["regularMarketPrice"]
+      @investment.save!
+    end
   end
 
   def historical_crypto
