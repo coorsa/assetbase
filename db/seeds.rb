@@ -47,8 +47,17 @@ puts "creating portfolios"
 portfolio_1 = Portfolio.create!(title: "YOLO FUND", description: "$$$$$$$$$!", user_id: user_1.id)
 portfolio_2 = Portfolio.create!(title: "Zero Research", description: "HODL", user_id: user_1.id)
 portfolio_3 = Portfolio.create!(title: "Hopium", description: "My Retirement (Maybe....)", user_id: user_1.id)
-
 puts "created portfolios"
+
+puts "finding previous prices"
+last_investment = Investment.last
+investments = [last_investment, bitcoin, pancakeswap, ethereum, dogecoin, polkadot]
+investments.each do |investment|
+  investment.previous_price = BasicYahooFinance::Query.new.quotes(Investment.find(investment.id).symbol)[Investment.find(investment.id).symbol]["regularMarketPrice"]
+  investment.save!
+  sleep(5)
+end
+puts "finished finding previous prices"
 
 puts "creating bookmark 1"
 a = Investment.last
