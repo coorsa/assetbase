@@ -22,8 +22,6 @@ puts "created crypto"
 
 puts 'creating NFTs'
 Investment.create!(name: "Mutant Ape Yacht Club", category: "NFT", symbol: "Mutant Ape Yacht Club")
-Investment.create!(name: "CryptoPunks", category: "NFT", symbol: "CryptoPunks")
-Investment.create!(name: "Bored Ape Yacht Club", category: "NFT", symbol: "BoredApeYachtClub")
 Investment.create!(name: "Doodles", category: "NFT", symbol: "Doodles")
 puts 'created NFTs'
 

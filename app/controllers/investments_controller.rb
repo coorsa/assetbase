@@ -14,11 +14,12 @@ class InvestmentsController < ApplicationController
 
   def show
     @investment = Investment.find(params[:id])
-    investment_price
     currency_symbol
     if @investment.category == "crypto"
+      investment_price
       historical_crypto
     elsif @investment.category == "share"
+      investment_price
       historical_stocks
       company_info
     elsif @investment.category == "NFT"
@@ -53,6 +54,11 @@ class InvestmentsController < ApplicationController
     query = BasicYahooFinance::Query.new
     data = query.quotes(@investment.symbol)
     @info = data[@investment.symbol]
+
+    if @info["regularMarketPrice"].nil? == false && @investment.previous_price != @info["regularMarketPrice"]
+      @investment.previous_price = @info["regularMarketPrice"]
+      @investment.save!
+    end
   end
 
   def historical_crypto
@@ -96,6 +102,11 @@ class InvestmentsController < ApplicationController
     @nft_info = { items: array[0], owners: array[1], floor_price: array[2],
                   floor_price_fiat: array[2].to_f * ethereum_price["ETH"][current_user.currency],
                   volume_traded: array[3], name: array[4], hyph_name: hyph_name }
+
+    if @investment.previous_price != @nft_info[:floor_price]
+      @investment.previous_price = @nft_info[:floor_price]
+      @investment.save!
+    end
   end
 
   def currency_symbol
