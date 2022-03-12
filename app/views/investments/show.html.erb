@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper mt-3">
   <div class="asset-wrapper">
     <% if @info.present? && @info["coinImageUrl"] != nil %>
       <%= render "crypto" %>
@@ -60,10 +60,13 @@
 </div>
 
 
-<div class="text-center" style="margin-top: 16px">
-  <%= link_to "Back to assets page", investments_path, class: "btn hollow-btn" %>
-  <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn primary-btn" %>
+<div class="mt-3 row d-flex" style="justify-content: space-around">
+  <%= link_to "Back", investments_path, class: "btn hollow-btn col-5" %>
+  <%= link_to "Add", new_investment_bookmark_path(@investment), class: "btn primary-btn col-5 text-center" %>
 </div>
+<% if @investment.bookmarks.present? %>
+  <%= render "transactionhistory" %>
+<% end %>
 
 <% if @clearbit.present?%>
   <%= render "clearbit" %>

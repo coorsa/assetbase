@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 class="mb-4 mt-4"> <%= @investment.name %> transaction history</h2>
+  <% @investment.bookmarks.each do |bookmark| %>
+    <div class="investment-container py-1 mt-3">
+      <div class="row mt-3">
+        <div class="col">
+          <%# <h5>Transaction type</h5> %>
+          <% if bookmark.transaction_type == "Buy" %>
+            <p><span style="color:#34CB41"><%= bookmark.transaction_type %></span></p>
+          <% else %>
+            <p><span style="color:#BA1F33"><%= bookmark.transaction_type %></span></p>
+          <% end%>
+        </div>
+        <div class="col">
+          <%# <h5>Quantity</h5> %>
+          <%= bookmark.quantity %> <%= bookmark.investment.symbol %>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <%# <h5>Date</h5> %>
+          <%= bookmark.date %>
+        </div>
+        <div class="col">
+          <%# <h5>Price</h5> %>
+          <%= @currency %> <%= bookmark.transaction_price %>
+        </div>
+      </div>
+      <% if bookmark.comment? %>
+        <div class="row mt-3">
+          <div class="col-10">
+            <h5>Comment</h5>
+            <%= bookmark.comment %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
