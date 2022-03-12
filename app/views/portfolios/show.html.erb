@@ -23,23 +23,25 @@
     </div>
 
   <div class="row no-gutters">
-    <% @portfolio.investments.group_by(&:name).each do |name, investments| %>
-    <% investment = investments.first %>
-      <div class="col-3">
-        <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol" %>
-          <p class="investment-name"><%= investment.name %></p>
-      </div>
-      <div class="col-5 align-self-center">
-        <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
-      </div>
-      <div class="col-3 align-self-center text-right">
-        <%# Show calculation of current asset price * quantity %>
-        <%= @currency %> <%= investment.bookmarks.sum(:quantity) %> <%= current_user.currency %>
-        <%# <text>$ 1,305.53</text> %>
-      </div>
-      <div class="col-1 text-right">
-        <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "pen-symbol fa fa-pen pr-0" %>
-      </div>
+    <% @portfolio_investment.each do |investment| %>
+      <% if investment.bookmarks.sum(:quantity) > 0 %>
+        <div class="col-3">
+          <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol" %>
+            <p class="investment-name"><%= investment.name %></p>
+        </div>
+        <div class="col-5 align-self-center">
+          <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
+        </div>
+        <div class="col-3 align-self-center text-right">
+          <%# Show calculation of current asset price * quantity %>
+          <%= @currency %> <%= investment.bookmarks.sum(:quantity) * 100 %>
+          <%# <text>$ 1,305.53</text> %>
+        </div>
+        <div class="col-1 text-right">
+          <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "pen-symbol fa fa-pen pr-0" %>
+        </div>
+      <% else %>
+      <% end %>
     <% end%>
   </div>
   <div class="row justify-content-around">

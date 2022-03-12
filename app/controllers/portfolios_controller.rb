@@ -29,6 +29,7 @@ class PortfoliosController < ApplicationController
     # This is a place holder for the currency that the API gives you, if different just change it
     api_curr = "USD"
     @portfolio_value = Convert.currency(value, api_curr, current_user.currency)
+    portfolio_investments
     currency_symbol
   end
 
@@ -81,6 +82,14 @@ class PortfoliosController < ApplicationController
 
   def set_portfolio
     @portfolio = Portfolio.find(params[:id])
+  end
+
+  def portfolio_investments
+    @portfolio_investment = []
+    @portfolio.investments.group_by(&:name).each do |name, investments|
+      @portfolio_investment << investments.first
+    end
+    @portfolio_investment
   end
 
   def currency_symbol
