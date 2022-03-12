@@ -8,7 +8,7 @@
   <div class="row logo-height full-img">
     <div class="col text-center align-self-center">
       <h5>Total value</h5>
-      <%= @portfolio_value.round(2) %> <%= @currency %>
+      <%= @currency %> <%= @portfolio_value.round(2) %>
     </div>
   </div>
 
@@ -23,34 +23,31 @@
         <%= link_to "", portfolio_path(@portfolio), class: "fa fa-trash m-2", method: :delete, data:{ confirm: "Are you sure?" } %>
       </div>
     </div>
-
-
-
-    <div class="row no-gutters">
       <% @portfolio_investment.each do |investment| %>
         <% if investment.bookmarks.sum(:quantity) > 0 %>
-          <div class="col-3">
-            <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol" %>
-              <p class="investment-name"><%= investment.name %></p>
-          </div>
-          <div class="col-5 align-self-center">
-            <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
-          </div>
-          <div class="col-4">
-            <div class="row align-self-center justify-content-end">
-              <%= @currency %> <%= investment.bookmarks.sum(:quantity) * investment.previous_price.round(2) %>
-              <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "fa fa-angle-double-right pr-0" %>            
+          <div class="row no-gutters mt-2">
+            <div class="col-3">
+              <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol" %>
+                <p class="investment-name"><%= investment.name %></p>
             </div>
-            <div class="row justify-content-center">
-              <div class="col-6">
-                <%= link_to "Trade", new_investment_bookmark_path(investment_id: investment), class: "primary-btn btn-small" %>
+            <div class="col-5 align-self-center">
+              <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
+            </div>
+            <div class="col-4 align-self-center">
+              <div class="row align-self-center justify-content-end">
+                <%= @currency %> <%= investment.bookmarks.sum(:quantity) * investment.previous_price.round(2) %>
+                <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "fa fa-angle-double-right align-self-center pb-1 pl-2" %>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-6 mt-1">
+                  <%= link_to "Trade", new_investment_bookmark_path(investment_id: investment), class: "primary-btn btn-small" %>
+                </div>
               </div>
             </div>
           </div>
         <% else %>
         <% end %>
       <% end%>
-    </div>
   </div>
   <div class="row full-width-btn-container p-2">
     <%= link_to "Back", portfolios_path, class: "btn hollow-btn" %>
