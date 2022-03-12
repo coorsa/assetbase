@@ -65,6 +65,9 @@
   <%= link_to "Back to assets page", investments_path, class: "btn hollow-btn" %>
   <%= link_to "Add to portfolio", new_investment_bookmark_path(@investment), class: "btn primary-btn" %>
 </div>
+<% if @investment.bookmarks.present? %>
+  <%= render "transactionhistory" %>
+<% end %>
 
 <% if @clearbit.present?%>
   <%= render "clearbit" %>
