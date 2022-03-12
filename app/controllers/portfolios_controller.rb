@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
   require 'currency_converter'
+
   before_action :set_portfolio, only: [:show, :destroy, :edit, :update]
 
   def index
@@ -29,6 +30,7 @@ class PortfoliosController < ApplicationController
     api_curr = "USD"
     @portfolio_value = Convert.currency(value, api_curr, current_user.currency)
     portfolio_investments
+    currency_symbol
   end
 
   def destroy
@@ -88,5 +90,9 @@ class PortfoliosController < ApplicationController
       @portfolio_investment << investments.first
     end
     @portfolio_investment
+  end
+
+  def currency_symbol
+    @currency = ISO4217::Currency.from_code(current_user.currency).symbol
   end
 end

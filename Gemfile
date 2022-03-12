@@ -44,6 +44,7 @@ gem "chartkick"
 gem "alphavantagerb"
 gem 'clearbit'
 gem 'concurrency'
+gem 'currencies', :require => 'iso4217'
 # //////////////////////
 
 gem 'autoprefixer-rails', '10.2.5'

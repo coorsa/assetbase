@@ -18,19 +18,18 @@
 
     <% if @info.present? && @investment.category != "NFT" %>
       <div>
-        <p><strong>Current price (<%= current_user.currency%>):</strong> <%= Concurrency.convert(@info["regularMarketPrice"], @info["currency"], current_user.currency).round(2) %>  </p>
+        <p><strong>Current price (<%= @currency %>):</strong> <%= Concurrency.convert(@info["regularMarketPrice"], @info["currency"], current_user.currency).round(2) %>  </p>
       </div>
     <% end %>
 
     <% if @investment.category  && @info && @info["regularMarketChangePercent"].present? %>
       <div>
-        <% if @info["regularMarketChangePercent"].positive?%>
+        <% if @info["regularMarketChangePercent"].positive? %>
           <p><strong>Market change:</strong> <span style="color:#34CB41"><%= @info["regularMarketChangePercent"].round(2)%>%</span></p>
         <% elsif @info["regularMarketChangePercent"].negative? %>
           <p><strong>Market change:</strong> <span style="color:#BA1F33;"><%= @info["regularMarketChangePercent"].round(2)%>%</span></p>
         <% else %>
           <p><strong>Market change:</strong> <%= @info["regularMarketChangePercent"].round(2)%>%</p>
-
         <% end%>
       </div>
     <% end %>
