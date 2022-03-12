@@ -15,6 +15,7 @@ class InvestmentsController < ApplicationController
   def show
     @investment = Investment.find(params[:id])
     investment_price
+    currency_symbol
     if @investment.category == "crypto"
       historical_crypto
     elsif @investment.category == "share"
@@ -95,5 +96,9 @@ class InvestmentsController < ApplicationController
     @nft_info = { items: array[0], owners: array[1], floor_price: array[2],
                   floor_price_fiat: array[2].to_f * ethereum_price["ETH"][current_user.currency],
                   volume_traded: array[3], name: array[4], hyph_name: hyph_name }
+  end
+
+  def currency_symbol
+    @currency = ISO4217::Currency.from_code(current_user.currency).symbol
   end
 end
