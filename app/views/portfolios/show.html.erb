@@ -8,7 +8,7 @@
   <div class="row logo-height full-img">
     <div class="col text-center align-self-center">
       <h5>Total value</h5>
-      <%= @portfolio_value.round(2) %> <%= current_user.currency %>
+      <%= @portfolio_value.round(2) %> <%= @currency %>
     </div>
   </div>
 
@@ -34,7 +34,7 @@
       </div>
       <div class="col-3 align-self-center text-right">
         <%# Show calculation of current asset price * quantity %>
-        <%= investment.bookmarks.sum(:quantity) %> <%= current_user.currency %>
+        <%= @currency %> <%= investment.bookmarks.sum(:quantity) %> <%= current_user.currency %>
         <%# <text>$ 1,305.53</text> %>
       </div>
       <div class="col-1 text-right">
