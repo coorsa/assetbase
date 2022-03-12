@@ -55,10 +55,10 @@ class InvestmentsController < ApplicationController
     data = query.quotes(@investment.symbol)
     @info = data[@investment.symbol]
 
-    if @info["regularMarketPrice"].nil? == false && @investment.previous_price != @info["regularMarketPrice"]
-      @investment.previous_price = @info["regularMarketPrice"]
-      @investment.save!
-    end
+    # if @info["regularMarketPrice"].nil? == false && @investment.previous_price != @info["regularMarketPrice"]
+    #   @investment.previous_price = @info["regularMarketPrice"]
+    #   @investment.save!
+    # end
   end
 
   def historical_crypto
