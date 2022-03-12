@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <h1> <%= @portfolio.title %> </h1>
+    <h2 class="mt-3"><%= @portfolio.title %></h2>
   </div>
   <div class="row justify-content-center">
     <p class="mb-0"><%= @portfolio.description %></p>
@@ -18,32 +18,33 @@
         <h3>Assets</h3> <%= link_to "", investments_path, class: "plus-symbol fa fa-plus" %>
       </div>
       <div class="col d-flex justify-content-end align-items-center px-0">
-        <%= link_to "", portfolio_path(@portfolio), class: "fa fa-trash", method: :delete, data:{ confirm: "Are you sure?" } %>
+        <%= link_to '', edit_portfolio_path, class: "fa fa-pen m-2" %>
+        <%= link_to "", portfolio_path(@portfolio), class: "fa fa-trash m-2", method: :delete, data:{ confirm: "Are you sure?" } %>
       </div>
     </div>
 
-  <div class="row no-gutters">
-    <% @portfolio.investments.group_by(&:name).each do |name, investments| %>
-    <% investment = investments.first %>
-      <div class="col-3">
-        <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol" %>
+    <div class="row no-gutters">
+      <% @portfolio.investments.group_by(&:name).each do |name, investments| %>
+        <% investment = investments.first %>
+        <div class="col-3">
+          <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol" %>
           <p class="investment-name"><%= investment.name %></p>
-      </div>
-      <div class="col-5 align-self-center">
-        <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
-      </div>
-      <div class="col-3 align-self-center text-right">
-        <%# Show calculation of current asset price * quantity %>
-        <%= @currency %> <%= investment.bookmarks.sum(:quantity) %> <%= current_user.currency %>
-        <%# <text>$ 1,305.53</text> %>
-      </div>
-      <div class="col-1 text-right">
-        <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "pen-symbol fa fa-pen pr-0" %>
-      </div>
-    <% end%>
+        </div>
+        <div class="col-5 align-self-center">
+          <%= image_tag "graphs/#{rand(5)}.png", width: "100%" %>
+        </div>
+        <div class="col-3 align-self-center text-right">
+          <%# Show calculation of current asset price * quantity %>
+          <%= @currency %> <%= investment.bookmarks.sum(:quantity) %> <%= current_user.currency %>
+          <%# <text>$ 1,305.53</text> %>
+        </div>
+        <div class="col-1 align-self-center text-right">
+          <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "fa fa-angle-double-right pr-0" %>
+        </div>
+      <% end%>
+    </div>
   </div>
-  <div class="row justify-content-around">
+  <div class="row full-width-btn-container p-2">
     <%= link_to "Back", portfolios_path, class: "btn hollow-btn" %>
-    <%= link_to 'Edit Portfolio', edit_portfolio_path, class: "btn hollow-btn" %>
   </div>
 </div>
