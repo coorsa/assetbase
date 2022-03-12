@@ -40,22 +40,30 @@ end
 puts "created shares"
 
 puts "creating user(s)"
-user_1 = User.create!(name: "Mickey Mouse", email: "rujyq@zetmail.com", password: "Frog123", currency: "USD")
+user_1 = User.create!(name: "André Ferrer", email: "rujyq@zetmail.com", password: "Frog123", currency: "BRL")
 puts "created users"
 
 puts "creating portfolios"
-portfolio_1 = Portfolio.create!(title: "Test", description: "Test portfolio", user_id: user_1.id)
-portfolio_2 = Portfolio.create!(title: "Test$$$", description: "Test portfolio2", user_id: user_1.id)
+portfolio_1 = Portfolio.create!(title: "YOLO FUND", description: "$$$$$$$$$!", user_id: user_1.id)
+portfolio_2 = Portfolio.create!(title: "Zero Research", description: "HODL", user_id: user_1.id)
+portfolio_3 = Portfolio.create!(title: "Hopium", description: "My Retirement (Maybe....)", user_id: user_1.id)
+
 puts "created portfolios"
 
 puts "creating bookmark 1"
 a = Investment.last
-Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test")
-Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 2, date: "19/02/2022", comment: "test")
-Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: bitcoin.id, transaction_price: 150, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test2")
+Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "stonks")
+Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: a.id, transaction_price: 100, transaction_type: "Buy", quantity: 2, date: "19/02/2022", comment: "no clue what they do!")
+Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: bitcoin.id, transaction_price: 150, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "Tesla cash")
+Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: pancakeswap.id, transaction_price: 100_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "<3 PANCAKES")
 puts "creating bookmark 2"
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: ethereum.id, transaction_price: 10_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test3")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: dogecoin.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test4")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: pancakeswap.id, transaction_price: 10, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test5")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: polkadot.id, transaction_price: 10, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test6")
+puts "creating bookmark 3"
+Bookmark.create!(portfolio_id: portfolio_3.id, investment_id: ethereum.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test3")
+Bookmark.create!(portfolio_id: portfolio_3.id, investment_id: dogecoin.id, transaction_price: 100_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test4")
+Bookmark.create!(portfolio_id: portfolio_3.id, investment_id: pancakeswap.id, transaction_price: 10_000_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test5")
+Bookmark.create!(portfolio_id: portfolio_3.id, investment_id: polkadot.id, transaction_price: 0.1, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test6")
 puts "created bookmarks"
