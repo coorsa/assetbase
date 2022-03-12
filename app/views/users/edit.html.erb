@@ -1,10 +1,13 @@
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :name, required: false, label: "Update your name", value: @user.name %>
-  <%= f.input :email, required: false, label: "Update your email", value: @user.email %>
-  <%= f.input :currency, as: :select, collection: ["USD", "GBP", "EUR", "DKK"], selected: @user.currency, class: 'form-control' %>
-  <%= f.input :photo, as: :file %>
-  <div class="form-actions">
-    <%= f.button :submit, "Update", class: 'btn btn-outline-primary' %>
-    <%= link_to 'Cancel', profile_path, class: 'btn btn-outline-warning' %>
-  </div>
-<% end %>
+<div class="container" %>
+  <h2 class="mt-3 mb-4">Edit profile</h2>
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.input :name, required: false, label: "Update your name", value: @user.name, input_html: { class: "custom-input" }, label_html: { class: "custom-label"} %>
+    <%= f.input :email, required: false, label: "Update your email", value: @user.email, input_html: { class: "custom-input" }, label_html: { class: "custom-label"} %>
+    <%= f.input :currency, as: :select, collection: ["USD", "GBP", "EUR", "DKK"], selected: @user.currency, class: 'form-control',  input_html: { class: "custom-input" }, label_html: { class: "custom-label"} %>
+    <%= f.input :photo, as: :file, label_html: { class: "custom-label"} %>
+    <div class="mt-4 row d-flex" style="justify-content: space-around">
+      <%= link_to 'Cancel', profile_path, class: 'btn hollow-btn col-5' %>
+      <%= f.button :submit, "Update", class: 'btn primary-btn col-5 text-center' %>
+    </div>
+  <% end %>
+</div>
