@@ -15,7 +15,7 @@ class InvestmentsController < ApplicationController
   def show
     @investment = Investment.find(params[:id])
     currency_symbol
-    if @investment.category == "Crypto"
+    if @investment.category == "crypto"
       investment_price
       historical_crypto
     elsif @investment.category == "share"
