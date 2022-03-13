@@ -27,9 +27,10 @@ class PortfoliosController < ApplicationController
     authorize @portfolio
     value = investment_price(portfolio_symbols)
     # This is a place holder for the currency that the API gives you, if different just change it
-    api_curr = "USD"
+    @api_curr = "USD"
+    @portfolio_value = Convert.currency(value, @api_curr, current_user.currency)
+    @convert = Convert
     @user = current_user
-    @portfolio_value = Convert.currency(value, api_curr, current_user.currency)
     portfolio_investments
     currency_symbol
   end
