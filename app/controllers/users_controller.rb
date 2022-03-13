@@ -13,7 +13,11 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(user_params)
     authorize @user
-    redirect_to profile_path
+    if user_params[:id]
+      redirect_to profile_path
+    else
+      redirect_to portfolio_path
+    end
   end
 
   private
