@@ -13,10 +13,18 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(user_params)
     authorize @user
-    redirect_to profile_path
+    if user_params[:id]
+      redirect_to profile_path
+    else
+      redirect_to portfolio_path(portfolio_param[:portfolio].to_i)
+    end
   end
 
   private
+
+  def portfolio_param
+    params.require("user").permit(:portfolio)
+  end
 
   def user_params
     params.require("user").permit(:email, :name, :currency, :photo)

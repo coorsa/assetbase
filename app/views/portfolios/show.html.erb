@@ -14,11 +14,15 @@
 
   <div class="container investment-container">
     <div class="row">
-      <div class="col d-flex flex-row align-items-center px-0">
+      <div class="col-4 d-flex flex-row align-items-center px-0">
         <h3>Assets</h3>
         <%= link_to "", investments_path, class: "plus-symbol fa fa-plus mt-0" %>
       </div>
-      <div class="col d-flex justify-content-end align-items-center px-0">
+      <div class="col-8 d-flex justify-content-end align-items-center px-0">
+        <%= simple_form_for(@user) do |f| %>
+          <%= f.input :currency, as: :select, collection: ["USD", "GBP", "EUR", "DKK"], selected: @user.currency, class: 'form-control',  input_html: { class: "custom-input", portfolio_id: @portfolio , onchange: "this.form.submit();" }, label_html: { class: "custom-label"} %>
+          <%= f.hidden_field :portfolio, value: @portfolio.id %>
+        <% end %>
         <%= link_to '', edit_portfolio_path, class: "fa fa-pen m-2" %>
         <%= link_to "", portfolio_path(@portfolio), class: "fa fa-trash m-2", method: :delete, data:{ confirm: "Are you sure?" } %>
       </div>
@@ -35,7 +39,10 @@
             </div>
             <div class="col-4 align-self-center">
               <div class="row align-self-center justify-content-end">
-                <%= @currency %> <%= investment.bookmarks.where(portfolio_id: @portfolio).sum(:quantity) * 100 %>
+                <%= @currency %>
+                <% investment_value = investment.previous_price.nil? ? 1 : investment.previous_price %>
+                <% value = (investment.bookmarks.where(portfolio_id: @portfolio).sum(:quantity) * investment_value) %>
+                <%= @convert.currency(value, @api_curr, @user.currency) %>
                 <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "fa fa-angle-double-right align-self-center pb-1 pl-2" %>
               </div>
               <div class="row justify-content-center">
