@@ -20,10 +20,17 @@
       </div>
       <div class="col-8 d-flex justify-content-end align-items-center px-0">
         <%= simple_form_for(@user) do |f| %>
-          <%= f.input :currency, as: :select, collection: ["USD", "GBP", "EUR", "DKK"], selected: @user.currency, class: 'form-control no-pseudo-style',  input_html: { class: "custom-input no-pseudo-style", portfolio_id: @portfolio , onchange: "this.form.submit();" }, label_html: { class: "custom-label no-pseudo-style"} %>
+          <%= f.input :currency, as: :select,
+                                 collection: ["USD", "GBP", "EUR", "DKK", "BRL"],
+                                 selected: @user.currency,
+                                 class: 'form-control no-pseudo-style',
+                                 input_html: { class: "custom-input m-0 no-pseudo-style",
+                                 portfolio_id: @portfolio , onchange: "this.form.submit();" },
+                                 label_html: { class: "hide" },
+                                 wrapper_html: { class: "mb-0 no-pseudo-style"} %>
           <%= f.hidden_field :portfolio, value: @portfolio.id %>
         <% end %>
-        <%= link_to '', edit_portfolio_path, class: "fa fa-pen m-2 no-pseudo-style" %>
+        <%= link_to '', edit_portfolio_path, class: "pl-4 fa fa-pen m-2 no-pseudo-style" %>
         <%= link_to "", portfolio_path(@portfolio), class: "fa fa-trash m-2 no-pseudo-style", method: :delete, data:{ confirm: "Are you sure?" } %>
       </div>
     </div>
@@ -57,6 +64,6 @@
       <% end%>
   </div>
   <div class="row full-width-btn-container p-2">
-    <%= link_to "Back", portfolios_path, class: "btn hollow-btn" %>
+    <%= link_to "Back", :back, class: "btn hollow-btn" %>
   </div>
 </div>

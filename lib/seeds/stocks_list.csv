@@ -25,7 +25,7 @@ CVX,Chevron Corp
 ABBV,Abbvie Inc
 AVGO,Broadcom Inc.
 WFC,Wells Fargo
-LLY,Eli Lilly
+LLY,Eli-Lilly
 NKE,Nike Inc Class B
 PEP,Pepsico Inc
 CSCO,Cisco Systems Inc
@@ -41,13 +41,11 @@ CRM,Salesforce.Com Inc
 INTC,Intel Corporation Corp
 MRK,Merck & Co Inc
 QCOM,Qualcomm Inc
-DHR,Danaher Corp
 MCD,Mcdonalds Corp
 UPS,United Parcel Service Inc Class B
 MS,Morgan Stanley
 NFLX,Netflix Inc
 PM,Philip Morris International Inc
-T,AT&T Inc.
 SCHW,Charles Schwab Corporation
 UNP,Union Pacific Corp
 TMUS,T Mobile US Inc
@@ -60,7 +58,6 @@ BMY,Bristol Myers Squibb
 INTU,Intuit Inc
 RTX,Raytheon Technologies Corporation
 AMD,Advanced Micro Devices Inc
-MDT,Medtronic Plc
 CVS,CVS Health Corp
 C,Citigroup Inc
 HON,Honeywell International Inc
@@ -96,16 +93,10 @@ CB,Chubb Ltd
 PNC,"PNC Financial Services Group, Inc."
 MMM,3M
 USB,US Bancorp
-TFC,Truist Financial Corporation
 CME,CME Group Inc Class A
-ADP,Automatic Data Processing Inc
-LRCX,Lam Research Corp
-TJX,"TJX Companies, Inc."
 HCA,"HCA Healthcare, Inc."
-CSX,CSX Corp
 MMC,Marsh & McLennan Inc
 GILD,Gilead Sciences Inc
-BDX,Becton Dickinson
 CI,Cigna Corp
 DUK,Duke Energy Corp
 GM,General Motors
@@ -116,7 +107,6 @@ ICE,Intercontinental Exchange Inc
 NSC,Norfolk Southern Corp
 EW,Edwards Lifesciences Corp
 ITW,Illinois Tool Inc
-SO,Southern Co
 COF,Capital One Financial Corp
 REGN,Regeneron Pharmaceuticals Inc
 CL,Colgate-Palmolive
@@ -160,8 +150,6 @@ TEL,TE Connectivity Ltd
 XLNX,Xilinx Inc
 MPC,Marathon Petroleum Corp
 JCI,Johnson Controls International Plc
-SPG,"Simon Property Group, Inc"
-SNPS,Synopsys Inc
 ROP,Roper Technologies Inc
 CTSH,Cognizant Technology Solutions
 INFO,IHS Markit Ltd
@@ -179,7 +167,6 @@ MSCI,MSCI Inc
 MNST,Monster Beverage Corp
 SYY,Sysco Corp
 HLT,Hilton Worldwide Holdings Inc
-LHX,"L3Harris Technologies, Inc."
 PAYX,Paychex Inc
 SRE,Sempra Energy
 IDXX,Idexx Laboratories Inc
@@ -188,7 +175,7 @@ AEP,American Electric Power Inc
 AFL,Aflac Inc
 BAX,Baxter International Inc
 TRV,Travelers Companies Inc
-DD,"DuPont de Nemours, Inc."
+DD,"DuPont"
 HSY,Hershey Foods
 MCHP,Microchip Technology Inc
 GPN,Global Payments Inc
@@ -217,7 +204,6 @@ EBAY,Ebay Inc
 CTVA,"Corteva, Inc."
 MSI,Motorola Solutions Inc
 RSG,Republic Services Inc
-DFS,Discover Financial Services
 TDG,Transdigm Group Inc
 OXY,Occidental Petroleum Corp
 STT,State Street Corp
@@ -235,7 +221,6 @@ ALL,Allstate Corp
 NUE,Nucor Corp
 IFF,International Flavors & Fragrances
 AMP,Ameriprise Finance Inc
-RMD,Resmed Inc
 TSN,Tyson Foods Inc Class A
 LYB,Lyondellbasell Industries NV
 ODFL,Old Dominion Freight Line Inc
@@ -258,9 +243,6 @@ ROK,Rockwell Automation Inc
 CMI,Cummins Inc
 BIIB,Biogen Inc
 VRSK,Verisk Analytics Inc
-KEYS,Keysight Technologies Inc
-BF.B,Brown Forman Inc Class B
-DLTR,Dollar Tree Inc
 BKR,Baker Hughes Company Class A
 AME,Ametek Inc
 WY,Weyerhaeuser Company
@@ -270,8 +252,6 @@ FRC,First Republic Bank
 FAST,Fastenal
 CPRT,Copart Inc
 ARE,"Alexandria Real Estate Equities, Inc"
-ABC,AmerisourceBergen Corp
-BLL,Ball Corp
 NDAQ,Nasdaq Inc
 HES,Hess Corp
 TWTR,Twitter Inc
@@ -289,9 +269,6 @@ O,Realty Income Corporation
 SWK,Stanley Black & Decker Inc
 EFX,Equifax Inc
 LYV,Live Nation Entertainment Inc
-LEN,Lennar Corporation Class A
-CERN,Cerner Corp
-AWK,American Water Works Inc
 MKC,McCormick & Co  Non-voting
 NTRS,Northern Trust Corporation
 LH,Laboratory Corporation Of America
@@ -318,8 +295,6 @@ VRSN,Verisign Inc
 URI,United Rentals Inc
 CFG,Citizens Financial Group Inc
 FANG,Diamondback Energy Inc
-DOV,Dover Corp
-CHD,Church And Dwight Inc
 FTV,Fortive Corp
 HBAN,Huntington Bancshares Inc
 RJF,Raymond James Inc
@@ -332,32 +307,23 @@ SWKS,Skyworks Solutions Inc
 PKI,Perkinelmer Inc
 ZBRA,Zebra Technologies Corp
 HPE,Hewlett Packard Enterprise
-EIX,Edison International
 DTE,DTE Energy
-MPWR,Monolithic Power Systems Inc
 IR,Ingersoll Rand Plc
-FE,Firstenergy Corp
 RCL,Royal Caribbean Cruises Ltd
 K,Kellogg
 PPL,PPL Corporation
-AEE,Ameren Corp
 COO,"Cooper Companies, Inc."
 SBNY,Signature Bank
 MGM,MGM Resorts International
-VTR,"Ventas, Inc"
-ETR,Entergy Corp
 ESS,"Essex Property Trust, Inc"
 PAYC,Paycom Software Inc
 ULTA,Ulta Beauty Inc
-CINF,Cincinnati Financial Corp
 ENPH,Enphase Energy Inc
 DRE,Duke Realty Corporation
 NTAP,NetApp Inc
 JBHT,JB Hunt Transport Services Inc
 GNRC,Generac Holdings Inc
 TDY,Teledyne Technologies Inc
-FLT,Fleetcor Technologies Inc
-PFG,Principal Financial Group Inc
 WAT,Waters Corp
 TER,Teradyne Inc
 VIAC,ViacomCBS Inc. - Class B
@@ -366,22 +332,14 @@ TTWO,Take Two Interactive Software Inc
 BXP,"Boston Properties, Inc"
 DRI,Darden Restaurants Inc
 BRO,Brown & Brown Inc
-CTRA,Coterra Energy Inc.
-GPC,Genuine Parts
 BIO,Bio Rad Laboratories Inc Class A
-POOL,Pool Corp
-VTRS,Viatris Inc.
-OMC,Omnicom Group Inc
 CZR,Caesars Entertainment Corp
-EXPD,Expeditors International Of Washington
 CMS,CMS Energy Corp
 CTLT,Catalent Inc
 IP,International Paper
-WAB,Westinghouse Air Brake Technologies
 AMCR,Amcor plc
 NVR,"NVR, Inc."
 ETSY,Etsy Inc
-HOLX,Hologic Inc
 KMX,Carmax Inc
 WDC,Western Digital Corp
 MOS,Mosaic
@@ -396,19 +354,14 @@ CNP,Centerpoint Energy Inc
 CE,Celanese Corporation
 NLOK,NortonLifeLock Inc.
 EMN,Eastman Chemical
-DISH,Dish Network Corp Class A
 MRO,Marathon Oil Corp
-XYL,Xylem Inc
-UAL,United Continental Holdings Inc
 LKQ,LKQ Corp
 TECH,Bio-Techne Corp
-DGX,Quest Diagnostics Inc
 WRB,WR Berkley Corp
 CF,CF Industries Holdings Inc
 TXT,Textron Inc
 DPZ,Dominos Pizza Inc
 BEN,Franklin Resources Inc
-J,Jacobs Engineering Group Inc.
 FDS,Factset Research Systems Inc
 ROL,Rollins Inc
 CRL,Charles River Laboratories International
@@ -431,7 +384,6 @@ AES,AES Corp
 IEX,IDEX Corp
 IPG,Interpublic Group Of Companies Inc
 ATO,Atmos Energy Corp
-MKTX,Marketaxess Holdings Inc
 BBWI,"Bath & Body Works, Inc."
 PKG,Packaging Corp Of America
 LNT,Alliant Energy Corp
@@ -445,29 +397,20 @@ HST,"Host Hotels & Resorts, Inc"
 RHI,Robert Half
 PTC,PTC Inc
 HAS,Hasbro Inc
-LNC,Lincoln National Corp
-CMA,Comerica Inc
 CPB,Campbell Soup
 CBOE,"Cboe Global Markets, Inc."
 IRM,Iron Mountain Incorporated
 CTXS,Citrix Systems Inc
 LDOS,Leidos Holdings Inc
-WRK,Westrock
-FFIV,F5 Networks Inc
 XRAY,Dentsply Sirona Inc
 FBHS,Fortune Brands Home And Security
 JKHY,"Jack Henry & Associates, Inc."
-PHM,Pultegroup Inc
 AAL,American Airlines Group Inc
 WHR,Whirlpool Corp
 RE,Everest Re Group Ltd
 APA,Apache Corp
-CHRW,"C.H. Robinson Worldwide, Inc."
 UHS,Universal Health Services Inc.
-AOS,A O Smith Corp
 SNA,Snap On Inc
-ZION,Zions Bancorporation
-DVA,Davita Inc
 HSIC,Henry Schein Inc
 REG,Regency Centers Corporation
 JNPR,Juniper Networks Inc
@@ -475,15 +418,10 @@ NI,Nisource Inc
 NWL,Newell Brands Inc
 WYNN,Wynn Resorts Ltd
 IVZ,Invesco Ltd
-BWA,BorgWarner Inc
-TPR,Tapestry
 CDAY,Ceridian HCM Holding Inc.
 TAP,Molson Coors Brewing Class B
-GL,Globe Life Inc.
-MHK,Mohawk Industries Inc
 ALLE,Allegion PLC
 LUMN,"CenturyLink, Inc."
-PNR,Pentair
 LW,Lamb Weston Holdings Inc
 NRG,NRG Energy Inc
 AIZ,Assurant Inc
@@ -491,16 +429,16 @@ RL,Ralph Lauren Corp Class A
 SEE,Sealed Air Corp
 FRT,Federal Realty Investment Trust
 OGN,Organon & Co.
-PBCT,Peoples United Financial Inc
-DXC,DXC Technology Company
-VNO,Vornado Realty Trust
-PENN,Penn National Gaming Inc
-PNW,Pinnacle West Corp
-ALK,Alaska Air Group Inc
 IPGP,IPG Photonics Corp
 UA,Under Armour Inc Class C
 UAA,Under Armour Inc Class A
-HII,Huntington Ingalls Industries Inc
 PVH,PVH Corp
 NLSN,Nielsen Holdings Plc
 NCLH,Norwegian Cruise Line Holdings Ltd
+
+
+SBRCY, Sberbank of Russia
+OIL, iPath Pure Beta Crude Oil ETN
+PALL, Aberdeen Standard Physical Palladium Shares ETF
+VNQ, Vanguard Real Estate ETF
+GLD, SPDR Gold Shares
