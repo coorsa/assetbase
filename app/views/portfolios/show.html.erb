@@ -20,10 +20,17 @@
       </div>
       <div class="col-8 d-flex justify-content-end align-items-center px-0">
         <%= simple_form_for(@user) do |f| %>
-          <%= f.input :currency, as: :select, collection: ["USD", "GBP", "EUR", "DKK", "BRL"], selected: @user.currency, class: 'form-control',  input_html: { class: "custom-input", portfolio_id: @portfolio , onchange: "this.form.submit();" }, label_html: { class: "custom-label"} %>
+          <%= f.input :currency, as: :select,
+                                 collection: ["USD", "GBP", "EUR", "DKK", "BRL"],
+                                 selected: @user.currency,
+                                 class: 'form-control',
+                                 input_html: { class: "custom-input m-0",
+                                 portfolio_id: @portfolio , onchange: "this.form.submit();" },
+                                 label_html: { class: "hide" },
+                                 wrapper_html: { class: "mb-0"} %>
           <%= f.hidden_field :portfolio, value: @portfolio.id %>
         <% end %>
-        <%= link_to '', edit_portfolio_path, class: "fa fa-pen m-2" %>
+        <%= link_to '', edit_portfolio_path, class: "pl-4 fa fa-pen m-2" %>
         <%= link_to "", portfolio_path(@portfolio), class: "fa fa-trash m-2", method: :delete, data:{ confirm: "Are you sure?" } %>
       </div>
     </div>
