@@ -11,8 +11,8 @@
           <%= f.input :symbol, input_html: { class: "custom-input" }, label_html: { class: "custom-label"} %>
         </div>
         <div class="mt-3 row d-flex" style="justify-content: space-around">
-          <%= link_to 'Cancel', investments_path, class: 'btn hollow-btn' %>
-          <%= f.submit "Create", class: 'btn primary-btn' %>
+          <%= link_to 'Cancel', :back, class: 'btn hollow-btn col-5' %>
+          <%= f.submit "Create", class: 'btn primary-btn col-5 text-center' %>
         </div>
       <% end %>
   </div>
