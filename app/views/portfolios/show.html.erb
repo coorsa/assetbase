@@ -20,11 +20,11 @@
       </div>
       <div class="col-8 d-flex justify-content-end align-items-center px-0">
         <%= simple_form_for(@user) do |f| %>
-          <%= f.input :currency, as: :select, collection: ["USD", "GBP", "EUR", "DKK"], selected: @user.currency, class: 'form-control',  input_html: { class: "custom-input", portfolio_id: @portfolio , onchange: "this.form.submit();" }, label_html: { class: "custom-label"} %>
+          <%= f.input :currency, as: :select, collection: ["USD", "GBP", "EUR", "DKK"], selected: @user.currency, class: 'form-control no-pseudo-style',  input_html: { class: "custom-input no-pseudo-style", portfolio_id: @portfolio , onchange: "this.form.submit();" }, label_html: { class: "custom-label no-pseudo-style"} %>
           <%= f.hidden_field :portfolio, value: @portfolio.id %>
         <% end %>
-        <%= link_to '', edit_portfolio_path, class: "fa fa-pen m-2" %>
-        <%= link_to "", portfolio_path(@portfolio), class: "fa fa-trash m-2", method: :delete, data:{ confirm: "Are you sure?" } %>
+        <%= link_to '', edit_portfolio_path, class: "fa fa-pen m-2 no-pseudo-style" %>
+        <%= link_to "", portfolio_path(@portfolio), class: "fa fa-trash m-2 no-pseudo-style", method: :delete, data:{ confirm: "Are you sure?" } %>
       </div>
     </div>
       <% @portfolio_investment.each do |investment| %>
@@ -43,7 +43,7 @@
                 <% investment_value = investment.previous_price.nil? ? 1 : investment.previous_price %>
                 <% value = (investment.bookmarks.where(portfolio_id: @portfolio).sum(:quantity) * investment_value) %>
                 <%= @convert.currency(value, @api_curr, @user.currency) %>
-                <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "fa fa-angle-double-right align-self-center pb-1 pl-2" %>
+                <%= link_to "", portfolio_bookmarks_path(@portfolio, investment_id: investment), class: "fa fa-angle-double-right align-self-center pb-1 pl-2 no-pseudo-style" %>
               </div>
               <div class="row justify-content-center">
                 <div class="col-6 mt-1">
