@@ -26,7 +26,6 @@ Investment.create!(name: "Doodles", category: "NFT", symbol: "Doodles")
 puts 'created NFTs'
 
 
-
 puts "creating shares"
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'stocks_list.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
