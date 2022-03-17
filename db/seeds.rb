@@ -70,7 +70,7 @@ tesla = Investment.find_by(symbol: "TSLA")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: tesla.id, transaction_price: 100_000, transaction_type: "Buy", quantity: 1, date: "18/02/2019", comment: "test3")
 gamestop = Investment.find_by(symbol: "GME")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: gamestop.id, transaction_price: 100_000, transaction_type: "Buy", quantity: 1, date: "18/02/2019", comment: "test3")
-Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: ethereum.id, transaction_price: 10_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test3")
+Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: ethereum.id, transaction_price: 9_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test3")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: dogecoin.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test4")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: pancakeswap.id, transaction_price: 10, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test5")
 puts "creating bookmark 3"

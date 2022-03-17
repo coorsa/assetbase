@@ -40,7 +40,7 @@
         <% if investment.bookmarks.sum(:quantity) > 0 %>
           <div class="row no-gutters mt-2">
             <div class="col-3">
-              <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol no-pseudo-style" %>
+              <%= link_to investment.symbol.split('-').first, investment_path(investment), class: "stretched-link investment-symbol no-pseudo-style" %>
                 <p class="investment-name"><%= investment.name %></p>
             </div>
             <div class="col-5 align-self-center">
