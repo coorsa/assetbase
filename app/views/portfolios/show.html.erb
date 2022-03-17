@@ -25,12 +25,13 @@
                                  selected: @user.currency,
                                  class: 'form-control no-pseudo-style',
                                  input_html: { class: "custom-input m-0 no-pseudo-style",
-                                 portfolio_id: @portfolio , onchange: "this.form.submit();" },
+                                 portfolio_id: @portfolio ,
+                                 onchange: "this.form.submit();" },
                                  label_html: { class: "hide" },
                                  wrapper_html: { class: "mb-0 no-pseudo-style"} %>
           <%= f.hidden_field :portfolio, value: @portfolio.id %>
         <% end %>
-        <div class="fa fa-angle-down"></div>
+        <div class="fa pl-1 fa-angle-down"></div>
         <%= link_to '', edit_portfolio_path, class: "pl-4 fa fa-pen m-2 no-pseudo-style" %>
         <%= link_to "", portfolio_path(@portfolio), class: "fa fa-trash m-2 no-pseudo-style", method: :delete, data:{ confirm: "Are you sure?" } %>
       </div>
