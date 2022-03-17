@@ -26,10 +26,10 @@
       <div class="d-flex flex-row-reverse col-2 align-items-center">
         <%= link_to "",
             bookmark_path(bookmark),
-            class: "fa fa-trash",
+            class: "fa fa-trash no-pseudo-style",
             method: :delete,
             data: { confirm: "Delete transaction?" } %>
-        <%= link_to "", edit_bookmark_path(bookmark), class: "fa fa-pen mr-2" %>
+        <%= link_to "", edit_bookmark_path(bookmark), class: "fa fa-pen mr-2 no-pseudo-style" %>
       </div>
 
       <%# <div class="col-1">
