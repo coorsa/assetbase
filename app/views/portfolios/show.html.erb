@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-4 d-flex flex-row align-items-center px-0">
         <h3>Assets</h3>
-        <%= link_to "", investments_path, class: "plus-symbol fa fa-plus mt-0" %>
+        <%= link_to "", investments_path(portfolio_id: @portfolio), class: "plus-symbol fa fa-plus mt-0" %>
       </div>
       <div class="col-8 d-flex justify-content-end align-items-center px-0">
         <%= simple_form_for(@user) do |f| %>
@@ -54,7 +54,7 @@
               </div>
               <div class="row justify-content-center">
                 <div class="col-6 mt-1">
-                  <%= link_to "Trade", new_investment_bookmark_path(investment_id: investment), class: "primary-btn btn-small" %>
+                  <%= link_to "Trade", new_investment_bookmark_path(investment_id: investment, portfolio_id: @portfolio), class: "primary-btn btn-small" %>
                 </div>
               </div>
             </div>
