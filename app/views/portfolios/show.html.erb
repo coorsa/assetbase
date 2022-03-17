@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-4 d-flex flex-row align-items-center px-0">
         <h3>Assets</h3>
-        <%= link_to "", investments_path(portfolio_id: @portfolio), class: "plus-symbol fa fa-plus mt-0" %>
+        <%= link_to "", investments_path(portfolio_id: @portfolio), class: "plus-symbol fa fa-plus mt-0 no-pseudo-style" %>
       </div>
       <div class="col-8 d-flex justify-content-end align-items-center px-0">
         <%= simple_form_for(@user) do |f| %>
@@ -38,7 +38,7 @@
         <% if investment.bookmarks.sum(:quantity) > 0 %>
           <div class="row no-gutters mt-2">
             <div class="col-3">
-              <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol" %>
+              <%= link_to investment.symbol, investment_path(investment), class: "stretched-link investment-symbol no-pseudo-style" %>
                 <p class="investment-name"><%= investment.name %></p>
             </div>
             <div class="col-5 align-self-center">
