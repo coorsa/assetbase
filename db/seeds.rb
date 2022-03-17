@@ -65,10 +65,14 @@ Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: a.id, transaction_
 Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: bitcoin.id, transaction_price: 150, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "Tesla cash")
 Bookmark.create!(portfolio_id: portfolio_1.id, investment_id: pancakeswap.id, transaction_price: 100_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "<3 PANCAKES")
 puts "creating bookmark 2"
+
+tesla = Investment.find_by(symbol: "TSLA")
+Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: tesla.id, transaction_price: 100_000, transaction_type: "Buy", quantity: 1, date: "18/02/2019", comment: "test3")
+gamestop = Investment.find_by(symbol: "GME")
+Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: gamestop.id, transaction_price: 100_000, transaction_type: "Buy", quantity: 1, date: "18/02/2019", comment: "test3")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: ethereum.id, transaction_price: 10_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test3")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: dogecoin.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test4")
 Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: pancakeswap.id, transaction_price: 10, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test5")
-Bookmark.create!(portfolio_id: portfolio_2.id, investment_id: polkadot.id, transaction_price: 10, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test6")
 puts "creating bookmark 3"
 Bookmark.create!(portfolio_id: portfolio_3.id, investment_id: ethereum.id, transaction_price: 100, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test3")
 Bookmark.create!(portfolio_id: portfolio_3.id, investment_id: dogecoin.id, transaction_price: 100_000, transaction_type: "Buy", quantity: 1, date: "18/02/2022", comment: "test4")
