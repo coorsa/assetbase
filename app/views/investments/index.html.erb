@@ -20,7 +20,7 @@
         <div class="investment-cards">
           <% @investments.where(:category => category).shuffle.first(10).each do |investment| %>
             <div class="investment-card">
-              <%= link_to investment.symbol, investment_path(investment.id, portfolio_id: params[:portfolio_id]), class: "no-pseudo-style" %><br>
+              <%= link_to investment.symbol.split('-').first, investment_path(investment.id, portfolio_id: params[:portfolio_id]), class: "no-pseudo-style" %><br>
               <%= link_to investment.name, investment_path(investment.id, portfolio_id: params[:portfolio_id]), class: "small-text no-pseudo-style" %>
             </div>
           <% end %>
